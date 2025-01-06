@@ -1,0 +1,156 @@
+.sidenav-header {
+  // padding-top: 24px;
+  text-align: center;
+
+  >img {
+    border-radius: 100%;
+    object-fit: cover;
+  }
+
+  .header-text {
+    margin-top: 10px;
+
+    >h2 {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
+
+    >p {
+      margin: 0;
+      font-size: .8rem;
+
+    }
+  }
+
+
+}
+
+img {
+  transition: width 0.05s ease;
+}
+
+::ng-deep .custom-tooltip {
+  .mdc-tooltip__surface {
+    // margin-left: 33px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border: 1px solid #cddaff;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 1px 0px 20px #cddaff;
+  }
+}
+
+.sidebar-list {
+  ::ng-deep mat-expansion-panel {
+    // background-color: #f8f7fa !important;
+    box-shadow: none !important;
+    /* Remove shadow */
+    border: none !important;
+    /* Remove border */
+    // padding: 0 16px 0 0 !important; /* Remove top, left, bottom padding and add right padding */
+
+    // &:hover {
+    //   background-color: #e0e0e0 !important;
+    //   /* Add hover background color */
+    // }
+  }
+}
+
+.sidebar-list {
+  .mat-expansion-panel:not(.mat-expanded) {
+    background: #fff;
+  }
+
+  .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:hover:not([aria-disabled=true]) {
+    background: #0000000a;
+  }
+
+  .mat-expansion-panel-header.mat-expanded {
+    background-color: #e9eff9 !important;
+    border-left: 5px solid #b6b6b6 !important;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .mat-expansion-panel.mat-expanded {
+    border-left: 1px solid #d4e2f7 !important;
+  }
+
+  a.active {
+    background-color: #e9eff9 !important; /* Same as mat-expanded background */
+    border-left: 5px solid #b6b6b6 !important;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+::ng-deep mat-sidenav {
+  border: none !important;
+  /* Remove border */
+}
+
+.sidebar-list {
+  ::ng-deep .mat-expansion-panel-header {
+    border-bottom: none !important;
+    /* Remove bottom border of the header */
+    padding: 0 10px 0 0 !important;
+    /* Remove top, left, bottom padding and add right padding */
+    // width: fit-content !important;
+  }
+}
+
+::ng-deep .mat-expansion-panel-header-title {
+  margin-right: 0px !important;
+}
+
+::ng-deep .mat-expansion-panel-header {
+  height: 40px !important;
+}
+
+::ng-deep .mat-expansion-panel-header.mat-expanded {
+  height: 40px !important;
+}
+
+::ng-deep .mat-mdc-nav-list .mat-mdc-list-item {
+  height: 40px !important;
+  padding: 0px 12px;
+}
+
+.sidebar-list {
+  ::ng-deep .mat-expansion-panel-body {
+    padding: 0px 24px !important;
+  }
+}
+
+.navIcon {
+  font-size: 15px;
+}
+
+.navCap {
+  font-size: 15px;
+}
+
+
+.sidebar-list {
+  display: flex;
+  flex-direction: column;
+  height: 92vh;
+  /* Take up the full height of the viewport */
+  // overflow-y: auto; /* Allow scrolling */
+}
+
+.sidebar-list .spacer {
+  flex-grow: 1;
+  /* This will push the settings to the bottom */
+}
+
+mat-accordion {
+  flex-shrink: 0;
+  /* Prevent accordion from shrinking */
+}
+
+

@@ -1,0 +1,162 @@
+<!-- <p>create-product-dialog works!</p> -->
+<div class="common-dialog-modal" *ngIf="id=='add-product' || id == 'edit-product'">
+  <div class="section-card rounded p-2">
+    <div class="d-flex align-items-start justify-content-between">
+      <div class="p-2">
+        <h3>Add Product</h3>
+        <p class="f-12 medium-font">Add details of your products</p>
+      </div>
+      <div mat-dialog-close>
+        <img src="./assets/images/dialogIcons/cross.svg" alt="">
+      </div>
+    </div>
+  </div>
+
+  <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- Product details Expansion Panel -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- <pre>payEntitlement.value: {{addProductForm.getRawValue() | json}}</pre> -->
+    <!-- <pre>getFormValidationErrors: {{getFormValidationErrors() | json }}</pre> -->
+    <div class="common-custom-expansion content-height py-3">
+      <mat-accordion class="example-headers-align" #accordion="matAccordion" multi>
+        <mat-expansion-panel [expanded]="true" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <p class="m-0 medium-font bodytext-color">Product Information</p>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="row p-2">
+            <div class="col-lg-6 col-xl-4">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Product Name</mat-label>
+                <input matInput formControlName="productName">
+              </mat-form-field>
+            </div>
+            <div class="col-lg-6 col-xl-4">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Product Type</mat-label>
+                <mat-select formControlName="productType">
+                  <mat-option *ngFor="let productType of productTypes"
+                    value="{{productType.value}}">{{productType.productTypeName}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col-lg-6 col-xl-4">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Category</mat-label>
+                <mat-select formControlName="productCategory">
+                  <mat-option *ngFor="let productCategory of productCategories"
+                    value="{{productCategory.productCategoryId}}">{{productCategory.productCategoryName}}</mat-option>
+                  <mat-option (click)="openAddCategory()">
+                    <span class="font-size text-primary">+ Add category</span>
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col-lg-6 col-xl-4">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Sub Category</mat-label>
+                <mat-select formControlName="productSubCategory">
+                  <mat-option *ngFor="let productCategory of productCategories"
+                    value="{{productCategory.productCategoryId}}">{{productCategory.productCategoryName}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col-lg-6 col-xl-4">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Brand</mat-label>
+                <mat-select formControlName="productBrand">
+                  <mat-option *ngFor="let brand of brands" value="{{brand.brandId}}">{{brand.brandName}}
+                    ({{brand.brandCode}})</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col-lg-6 col-xl-4">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Quantity</mat-label>
+                <input matInput formControlName="productQty">
+              </mat-form-field>
+            </div>
+            <div class="col-lg-6 col-xl-4">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Unit</mat-label>
+                <mat-select formControlName="productUnit">
+                  <mat-option *ngFor="let unit of units" value="{{unit.value}}">{{unit.unitName}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <!-- <div class="col-lg-6 col-xl-4">
+              <div class="sku-mat-form-field">
+                <mat-form-field appearance="outline" class="w-100 rounded-end-0" color="primary">
+                  <mat-label>SKU</mat-label>
+                  <input type="text" matInput placeholder="Generate SKU code" formControlName="productSku">
+                  <button matSuffix type="button" class="p-4 rounded-start-0 h-100" mat-raised-button color="primary"
+                    (click)="generateSKU()">Create SKU</button>
+                </mat-form-field>
+              </div>
+            </div> -->
+            <div class="col-lg-6 col-xl-4">
+              <div class="sku-mat-form-field">
+                <mat-form-field appearance="outline" class="w-100 rounded-end-0 relative-field" color="primary">
+                  <mat-label>SKU</mat-label>
+                  <input type="text" matInput placeholder="Generate SKU code" formControlName="productSku"
+                    class="sku-input">
+                  <button type="button" class="create-sku-button" mat-raised-button color="primary"
+                    (click)="generateSKU()">Create SKU</button>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-xl-4">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Date</mat-label>
+                <input matInput [matDatepicker]="picker" (focus)="picker.open()" readonly
+                  formControlName="productCreateDate">
+              </mat-form-field>
+              <mat-datepicker #picker></mat-datepicker>
+            </div>
+            <mat-form-field appearance="outline" class="w-100" color="primary">
+              <mat-label>Description</mat-label>
+              <textarea matInput formControlName="productDescription"></textarea>
+            </mat-form-field>
+          </div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel [expanded]="true" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Product Images
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="d-flex flex-wrap">
+            <!-- Add Image Button -->
+            <div class=" d-flex flex-column align-items-start file-uploader-container">
+              <div class="d-flex flex-column align-items-center justify-content-center upload-lable-text btn"
+                (click)="triggerFileUpload(fileInput)">
+                <i class="bi bi-plus-square"></i>
+                <label for="inputGroupFile">Add Images</label>
+              </div>
+              <input #fileInput type="file" class="form-control file-upload-input hidden"
+                (change)="onFilesSelected($event)" multiple hidden>
+            </div>
+
+            <!-- Image Previews -->
+            <div class="d-flex flex-column align-items-start file-uploader-container"
+              *ngFor="let image of images; let i = index">
+              <div class=" upload-lable-text btn">
+                <img *ngIf="image" [src]="image.src" alt="Image Preview" class="image-preview">
+                <div class="text-end delete-container">
+                  <i class="bi bi-x delete-icon" (click)="deleteImage(i)"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+    <div class="d-flex justify-content-end align-items-center py-2" style="opacity: 100%;">
+      <button type="submit" mat-raised-button [disabled]="!isAddProductFormValid" color="primary">Submit</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,49 @@
+.breadcrumb-icon {
+  position: absolute;
+  top: 10px;
+  right: 19px;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mat-label-text {
+  color: #a1a1a1;
+}
+
+// .sku-mat-form-field .mat-mdc-form-field-icon-prefix,
+// .mat-mdc-form-field-icon-suffix {
+//   line-height: 0;
+// }
+
+.font-size {
+  font-size: 14px; // Adjust the font size as needed
+  // color: #5d87ff;
+}
+
+.content-height {
+  overflow: auto;
+  max-height: 60vh;
+}
+
+.relative-field {
+  position: relative;
+}
+
+.sku-input {
+  padding-right: 120px;
+  /* Adjust based on the width of the button */
+}
+
+.create-sku-button {
+  position: absolute;
+  top: 50%;
+  right: -16px;
+  transform: translateY(-50%);
+  height: 100%;
+  line-height: 1;
+  z-index: 2;
+  border-radius: 0 7px 7px 0;
+}

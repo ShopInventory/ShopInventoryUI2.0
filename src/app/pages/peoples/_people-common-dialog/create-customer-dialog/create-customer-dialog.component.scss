@@ -1,0 +1,25 @@
+.cat-code-input {
+  padding-right: 120px;
+  /* Adjust based on the width of the button */
+}
+
+.create-cat-code-button {
+  position: absolute;
+  top: 50%;
+  right: -16px;
+  transform: translateY(-50%);
+  height: 100%;
+  line-height: 1;
+  z-index: 2;
+  border-radius: 0 2px 2px 0;
+}
+
+.content-height {
+  overflow: auto;
+  max-height: 60vh;
+}
+
+.relative-field {
+  position: relative;
+}
+

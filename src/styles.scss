@@ -1,1 +1,614 @@
-/* You can add global styles to this file, and also import other style files */
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.elevation-classes();
+@include mat.app-background();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+
+$dark-primary-text: rgba(black, 0.87);
+$dark-secondary-text: rgba(black, 0.54);
+$dark-disabled-text: rgba(black, 0.38);
+$dark-dividers: rgba(black, 0.12);
+$dark-focused: rgba(black, 0.12);
+$light-primary-text: white;
+$light-secondary-text: rgba(white, 0.7);
+$light-disabled-text: rgba(white, 0.5);
+$light-dividers: rgba(white, 0.12);
+$light-focused: rgba(white, 0.12);
+
+$primary-palette: (
+  50: #e3f1ff,
+  100: #bbdbfe,
+  200: #8fc6ff,
+  300: #62affe,
+  400: #419efe,
+  500: #278dfc,
+  600: #2a7fed,
+  700: #2a6dd9,
+  800: #295cc6,
+  900: #263ca7,
+  contrast: (50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+  )
+);
+
+$secondary-palette: (
+  50: #e9e9fa,
+  100: #c7c7f1,
+  200: #a1a3e8,
+  300: #7a7fdf,
+  400: #5d61d8,
+  500: #4043cf,
+  600: #3b3bc4,
+  700: #3230b8,
+  800: #2924ad,
+  900: #1e0a95,
+  contrast: (50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+  )
+);
+
+$warn-palette: (
+  50: #ffebee,
+  100: #ffced2,
+  200: #f89c99,
+  300: #f17471,
+  400: #fd534c,
+  500: #ff422e,
+  600: #f3382f,
+  700: #e12d29,
+  800: #d42422,
+  900: #c61313,
+  contrast: (50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+  )
+);
+
+$success-palette: (
+  50: #e7f6e6,
+  100: #c5e8c1,
+  200: #9fd999,
+  300: #75cb6f,
+  400: #53c04e,
+  500: #2cb428,
+  600: #20a51f,
+  700: #099310,
+  800: #008200,
+  900: #006300,
+  contrast: (50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+  )
+);
+
+
+
+$ShopInventoryUI-primary: mat.m2-define-palette($primary-palette, 700);
+$ShopInventoryUI-accent: mat.m2-define-palette($success-palette, 700);
+
+// The warn palette is optional (defaults to red).
+$ShopInventoryUI-warn: mat.m2-define-palette($warn-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$ShopInventoryUI-theme: mat.m2-define-light-theme((color: (primary: $ShopInventoryUI-primary,
+        accent: $ShopInventoryUI-accent,
+        warn: $ShopInventoryUI-warn,
+      ),
+      typography: mat.m2-define-typography-config($font-family: "Poppins-r"),
+      density: 0));
+
+// Define a compact theme
+// $compact-theme: mat.define-light-theme((density: -1));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($ShopInventoryUI-theme);
+
+
+/* Global styles */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+  /* 62.5% of 16px = 10px */
+}
+
+@media screen and (max-width: 1399px) {
+  html {
+    font-size: 58%;
+    /* 58% of 16px = 9.28px */
+  }
+}
+
+@media screen and (max-width: 991px) {
+  html {
+    font-size: 56%;
+    /* 56% of 16px = 8.96px */
+    scroll-behavior: smooth;
+  }
+}
+
+* {
+  font-family: 'Poppins-r';
+}
+
+//BorderColor
+$borderColor: #e5eaef;
+$borderformColor: #dfe5ef;
+$border-radius: 7px;
+
+@font-face {
+  font-family: 'Jakarta';
+  src: url(../src/assets/fonts/PlusJakartaSans-VariableFont_wght.ttf);
+}
+
+
+// Poppins font
+@font-face {
+  font-family: 'Poppins-r';
+  src: url(../src/assets/fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Poppins-m';
+  src: url(../src/assets/fonts/Poppins-Medium.ttf);
+}
+
+@font-face {
+  font-family: 'Poppins-b';
+  src: url(../src/assets/fonts/Poppins-Bold.ttf);
+}
+
+
+.section-card {
+  background-color: #ecf2ff !important;
+}
+
+p,
+li,
+td,
+th,
+a,
+span,
+label {
+  font-size: 1.4rem;
+}
+
+
+small {
+  font-weight: 700;
+  color: #555B62;
+  font-size: 1.225rem;
+}
+
+.heading-1,
+h1 {
+  font-size: 2.4rem !important;
+  font-weight: 700 !important;
+}
+
+.heading-2,
+h2 {
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+}
+
+.subtitle-1,
+h3 {
+  font-size: 1.6rem !important;
+  font-weight: 700 !important;
+}
+
+.subtitle-2,
+h4 {
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+}
+
+.bodytext-1 {
+  font-size: 1.4rem !important;
+  font-weight: 500 !important;
+}
+
+.f-10 {
+  font-size: 1rem;
+}
+
+.f-12 {
+  font-size: 1.2rem;
+}
+
+.f-14 {
+  font-size: 1.4rem;
+}
+
+.f-16 {
+  font-size: 1.6rem;
+}
+
+.f-18 {
+  font-size: 1.8rem;
+}
+
+.f-20 {
+  font-size: 2.0rem;
+}
+
+.flex-1-auto {
+  flex: 1 1 0%;
+}
+
+.medium-font {
+  font-family: 'Poppins-m' !important;
+}
+
+.bold-font {
+  font-family: 'Poppins-b' !important;
+}
+
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  background-color: #6b6969;
+}
+
+::-webkit-scrollbar-track:vertical {
+  background: #E4EAF2;
+  border-left: 9px solid white;
+  border-right: 9px solid white;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  background: #B6C8DE;
+  border-left: 8px solid white;
+  border-right: 8px solid white;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-track:horizontal {
+  background: #E4EAF2;
+  border-top: 9px solid white;
+  border-bottom: 9px solid white;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  background: #B6C8DE;
+  border-top: 8px solid white;
+  border-bottom: 8px solid white;
+  border-radius: 8px;
+}
+
+.mdc-text-field--outlined {
+
+  .mdc-notched-outline__leading,
+  .mdc-notched-outline__trailing,
+  .mdc-notched-outline__notch {
+    border-color: $borderColor !important;
+  }
+
+  .mdc-notched-outline .mdc-notched-outline__leading {
+    border-top-left-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+  }
+
+  .mdc-notched-outline .mdc-notched-outline__trailing {
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
+}
+
+/* -----------------------
+---mat-card style class---
+----------------------- */
+.cardWithShadow {
+  box-shadow: 0rem 0.308rem 2rem #74799326 !important;
+  padding: 15px;
+}
+
+.mdc-form-field>label {
+  font-size: 14px;
+}
+
+.hide-hint {
+  .mat-mdc-form-field-subscript-wrapper {
+    display: none;
+  }
+}
+
+/* ----------------------------------------------
+---common custom accordian -- expansion panels---
+---------------------------------------------- */
+
+.common-custom-expansion {
+  .mat-expansion-panel:not([class*="mat-elevation-z"]) {
+    box-shadow: none !important;
+    margin-bottom: 10px;
+  }
+
+  .mat-expansion-panel-header,
+  .mat-expanded {
+    background: #f0f0f0 !important;
+  }
+
+  .mat-expansion-panel:hover {
+    background: #f0f0f0;
+  }
+
+  .mat-expansion-panel-body {
+    background-color: #fff;
+    padding: 10px 15px;
+  }
+
+
+
+  .mat-expansion-panel-header.mat-expanded {
+    height: 40px;
+  }
+
+  .mat-expansion-panel {
+    &:not(.mat-expanded) {
+      border: none;
+    }
+
+    border: 1px solid #D0D9E5;
+  }
+}
+
+/* ----------------------------------------------
+-----------Mat Table Class---------------------
+---------------------------------------------- */
+
+.mat-mdc-header-cell {
+  border-bottom: 1px solid #5a9cff !important;
+  font-size: 1.4rem !important;
+  font-weight: 600 !important;
+  color: #414141;
+  background-color: #eef5ff !important;
+}
+
+.mat-footer-cell {
+  font-size: 1.4rem;
+  font-weight: 600 !important;
+  color: #414141;
+  font-family: "Poppins-m";
+}
+
+.mat-mdc-header-cell,
+.mat-mdc-cell,
+.mat-mdc-footer-cell {
+  font-size: .8rem;
+
+  padding: 8px 10px !important;
+}
+
+.mat-sort-header-content {
+  text-align: left !important;
+}
+
+.action-icon {
+  width: 30px !important;
+}
+
+.cursor-not-allowed {
+  cursor: not-allowed !important;
+}
+
+/* ----------------------------------------------
+--Mat Table Last Column (Action) Sticky Class----
+---------------------------------------------- */
+
+@media screen and (min-width:576px) {
+  .sticky-column-condition {
+    position: sticky;
+    right: -2px;
+    text-align: center !important;
+  }
+
+  td:last-child:not(.mat-calendar-body-cell-container):has(img, a, button) {
+    @extend .sticky-column-condition;
+    background-color: #fff;
+    box-shadow: 21px 0 7px -24px inset;
+    cursor: pointer;
+  }
+
+  th.sticky-action-column {
+    @extend .sticky-column-condition;
+  }
+
+}
+
+.action-icon {
+  width: 30px !important;
+
+}
+
+
+/* ----------------------------------------------
+-----------Mat Dialog Class---------------------
+---------------------------------------------- */
+.small-dialog {
+  width: 40%;
+}
+
+.medium-dialog {
+  width: 55%;
+}
+
+.large-dialog {
+  width: 70%;
+}
+
+@media screen and (min-width:991px) and (max-width:1400px) {
+
+  .small-dialog,
+  .medium-dialog,
+  .large-dialog {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width:991px) {
+
+  .small-dialog,
+  .medium-dialog,
+  .large-dialog {
+    width: 100%;
+  }
+}
+
+.failed_img {
+  width: 130px;
+}
+
+.file-uploader-container {
+  padding: 5px;
+  /* Add some padding around the container */
+
+  .upload-lable-text {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    background-color: #2A6DD90F;
+    border: 1px dashed #006FE1;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  i {
+    color: #006FE1;
+  }
+
+  label {
+    margin-top: 8px;
+    color: #006FE1;
+    font-size: 14px;
+  }
+
+  .image-preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .upload-lable-text .delete-icon {
+    position: absolute;
+    top: -7px;
+    right: -2px;
+    color: #006FE1;
+    cursor: pointer;
+    font-size: 18px;
+  }
+}
+
+
+.mat-mdc-dialog-container {
+  padding: 18px !important;
+
+  .mdc-dialog__surface {
+    padding: 15px !important;
+
+  }
+}
+
+.breadcrumb-icon {
+  top: 1px;
+  right: 28px;
+
+  >img {
+    width: 60px;
+    height: 60px;
+  }
+}
+.mdc-text-field--outlined {
+
+  .mdc-notched-outline__leading,
+  .mdc-notched-outline__trailing,
+  .mdc-notched-outline__notch {
+    border-color: $borderColor !important;
+  }
+
+  .mdc-notched-outline .mdc-notched-outline__leading {
+    border-top-left-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+  }
+
+  .mdc-notched-outline .mdc-notched-outline__trailing {
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
+}
+
+
+// --------------------------------------------
+// ----- Loader spinner overlay start -----
+// --------------------------------------------
+
+.cdk-overlay-backdrop.cdk-overlay-backdrop-showing.dark-backdrop {
+  background: #000;
+  opacity: 0.25 !important;
+}
+// Loader spinner overlay end
+.mat-list-base
+{
+  padding-top: 0px!important;
+}
+
+.mat-mdc-dialog-title::before {
+  display: inline-block;
+  width: 0;
+  height: 40px;
+  content: "";
+  vertical-align: 0;
+}

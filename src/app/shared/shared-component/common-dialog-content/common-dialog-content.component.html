@@ -1,0 +1,92 @@
+<!-- <p>common-dialog-content works!</p> -->
+
+<!-- Successful starts-->
+<div class="common-dialog-modal" *ngIf="id=='successful'">
+  <div class="text-end">
+    <div class="text-end" mat-dialog-close>
+      <img src="./assets/images/dialogIcons/cross.svg" alt="">
+    </div>
+  </div>
+  <div class="text-center">
+    <div>
+      <img src="./assets/images/dialogIcons/green-right-check-icon.svg" alt="icon">
+    </div>
+    <div class="mt-2">
+      <h2 class="text-align-center m-0 text-success mt-3">{{ title ? title : 'Successful'}}</h2>
+      <p class="text-align-center m-0 bodytext-color success_subtext mt-3">{{dialogText}}
+      </p>
+    </div>
+    <div class="mt-5">
+      <button mat-raised-button color="primary" class="px-5" mat-dialog-close>Ok</button>
+    </div>
+  </div>
+</div>
+
+<!-- Failed starts-->
+<div class="common-dialog-modal" *ngIf="id=='failed'">
+  <div class="text-end">
+    <div class="text-end" mat-dialog-close>
+      <img src="./assets/images/dialogIcons/cross.svg" alt="">
+    </div>
+  </div>
+  <div class="text-center">
+    <div class="modal-icon-image-box-failed">
+      <img src="./assets/images/dialogIcons/failed.png" alt="icon">
+    </div>
+    <div class="mt-2">
+      <h2 class="text-align-center m-0 text-danger mt-3">{{ title ? title : 'Failed'}}</h2>
+      <p class="text-align-center m-0 bodytext-color success_subtext mt-3">{{dialogText}}
+      </p>
+    </div>
+    <div class="mt-5">
+      <button mat-raised-button color="primary" class="px-5" mat-dialog-close>Ok</button>
+    </div>
+  </div>
+</div>
+
+<!-- Confirm starts-->
+<div class="common-dialog-modal" *ngIf="id=='confirm-modal'">
+  <div class="text-end">
+    <div class="text-end" mat-dialog-close>
+      <img src="./assets/images/dialogIcons/cross.svg" alt="">
+    </div>
+  </div>
+  <div class="text-center">
+    <div class="modal-icon-image-box-confirm">
+      <img src="./assets/images/dialogIcons/confirm_icon.png" alt="icon">
+    </div>
+    <div class="mt-2">
+      <h2 class="text-align-center m-0 text-primary mt-3">{{ title ? title : 'Confirm'}}</h2>
+      <p class="text-align-center m-0 mt-3">{{dialogText}}
+      </p>
+    </div>
+    <div class="mt-5">
+      <button mat-stroked-button color="primary" class="px-5 py-1" mat-dialog-close>No</button>
+      <button (click)="confirmModal('Yes')" mat-raised-button color="primary" class="px-5 py-1 ms-2" mat-dialog-close>Yes</button>
+    </div>
+  </div>
+</div>
+
+<!-- Warning starts-->
+<div class="common-dialog-modal" *ngIf="id=='confirm-modal-with-warning'">
+  <div class="text-end">
+    <div class="text-end" mat-dialog-close>
+      <img src="./assets/images/dialogIcons/cross.svg" alt="">
+    </div>
+  </div>
+  <div class="text-center">
+    <div class="modal-icon-image-box-confirm">
+      <img src="./assets/images/dialogIcons/warning.svg" alt="icon">
+    </div>
+    <div class="mt-2">
+      <h2 class="text-align-center m-0 text-warning mt-3">{{ title ? title : 'Warning'}}</h2>
+      <p class="text-align-center m-0 mt-3">{{dialogText}}
+      </p>
+    </div>
+    <div class="mt-5">
+      <button mat-stroked-button color="primary" class="px-5 py-1" mat-dialog-close>No</button>
+      <button (click)="confirmModal('Yes')" mat-raised-button color="primary" class="px-5 py-1 ms-2" mat-dialog-close>Yes</button>
+    </div>
+  </div>
+</div>
+

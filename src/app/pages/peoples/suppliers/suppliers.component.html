@@ -1,0 +1,192 @@
+<!-- <p>suppliers works!</p> -->
+<mat-card class="cardWithShadow">
+  <div class="section-card rounded p-3">
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="p-2">
+        <h1>Suppliers</h1>
+        <p class="f-16 medium-font">Manage your suppliers</p>
+      </div>
+      <div class="breadcrumb-icon">
+        <img src="/assets/images/supplier.svg" alt="breadcrumb">
+      </div>
+    </div>
+  </div>
+
+  <div class="supplier-table-container">
+    <div class="d-flex align-items-center justify-content-between mt-3">
+      <div class="col-12 col-sm-12 col-md-8 col-lg-6 col-xl-4">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Search</mat-label>
+          <input matInput placeholder="Search Supplier Name, Email Id, Phone No. etc" (keyup)="filterApply($event)"
+            #input />
+          <mat-icon matSuffix class="search-icon-color">search</mat-icon>
+        </mat-form-field>
+      </div>
+      <div>
+        <button mat-raised-button class="mx-2" (click)="pdfDownload()">
+          <i class="bi bi-filetype-pdf f-20 text-danger"></i>
+        </button>
+        <button mat-raised-button class="mx-2" (click)="excelDownload()">
+          <i class="bi bi-filetype-xls f-20 text-success"></i>
+        </button>
+        <button mat-raised-button class="mx-2" (click)="print()">
+          <i class="bi bi-printer f-20 text-primary"></i>
+        </button>
+        <button mat-raised-button color="primary" (click)="addSupplier('add-supplier')">Add Supplier</button>
+      </div>
+    </div>
+    <div class="common-custom-expansion my-3">
+      <!-- ------------------------------------------------------------------------- -->
+      <!-- Supplier Table Container -->
+      <!-- ------------------------------------------------------------------------- -->
+
+
+      <div class="">
+        <!-- <pre>New suppliersData Data: {{suppliersData | json}}</pre> -->
+
+        <table mat-table [dataSource]="suppliersDataSource" class="" matSort matSortDirection="desc"
+          mat-table-auto-rows>
+          <!-- Number Column -->
+          <ng-container matColumnDef="srNo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Sr. No.</th>
+            <td mat-cell *matCellDef="let row;let i = index">
+              <p class="m-0">{{i + 1}}</p>
+            </td>
+          </ng-container>
+
+          <!-- Title Column -->
+          <ng-container matColumnDef="supplierName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Supplier Name</th>
+            <td mat-cell *matCellDef="let row">
+              <p class="m-0">{{row.supplierName}}</p>
+            </td>
+          </ng-container>
+
+          <!-- Title Column -->
+          <ng-container matColumnDef="supplierCompanyName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Firm/Company</th>
+            <td mat-cell *matCellDef="let row">
+              <p class="m-0">{{row.supplierCompanyName}}</p>
+            </td>
+          </ng-container>
+
+          <!-- Title Column -->
+          <ng-container matColumnDef="supplierId">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Supplier Id</th>
+            <td mat-cell *matCellDef="let row">
+              <p class="m-0">{{row.supplierId}}</p>
+            </td>
+          </ng-container>
+
+          <!-- Title Column -->
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Email Id</th>
+            <td mat-cell *matCellDef="let row">
+              <p class="m-0">{{row.email}}</p>
+            </td>
+          </ng-container>
+
+          <!-- Title Column -->
+          <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Phone No.</th>
+            <td mat-cell *matCellDef="let row">
+              <p class="m-0">{{row.phone}}</p>
+            </td>
+          </ng-container>
+
+          <!-- Title Column -->
+          <ng-container matColumnDef="gstNo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>GST</th>
+            <td mat-cell *matCellDef="let row">
+              <p class="m-0">{{row.gstNo}}</p>
+            </td>
+          </ng-container>
+
+          <!-- Title Column -->
+          <ng-container matColumnDef="panNo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>PAN</th>
+            <td mat-cell *matCellDef="let row">
+              <p class="m-0">{{row.panNo}}</p>
+            </td>
+          </ng-container>
+
+          <!-- Title Column -->
+          <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Address</th>
+            <td mat-cell *matCellDef="let row">
+              <p class="m-0">{{row.phone}}</p>
+            </td>
+          </ng-container>
+
+          <!-- Title Column -->
+          <ng-container matColumnDef="city">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>City</th>
+            <td mat-cell *matCellDef="let row">
+              <p class="m-0">{{row.city}}</p>
+            </td>
+          </ng-container>
+
+          <!-- Title Column -->
+          <ng-container matColumnDef="state">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>State</th>
+            <td mat-cell *matCellDef="let row">
+              <p class="m-0">{{row.state}}</p>
+            </td>
+          </ng-container>
+
+          <!-- Title Column -->
+          <ng-container matColumnDef="country">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Country</th>
+            <td mat-cell *matCellDef="let row">
+              <p class="m-0">{{row.country}}</p>
+            </td>
+          </ng-container>
+
+          <!-- Created Column -->
+          <ng-container matColumnDef="created">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header>Created</th>
+            <td mat-cell *matCellDef="let row">
+              <p class="m-0">{{row.supplierAddDate | date:'dd/MM/yyyy'}}</p>
+            </td>
+          </ng-container>
+
+          <!-- Status Column -->
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header>Status</th>
+            <td mat-cell *matCellDef="let row">
+              <span
+                [ngClass]="{'status-button-active': row.supplierStatus == '1', 'status-button-inactive': row.supplierStatus == '0'}">
+                {{row.supplierStatus == '1' ? 'Active': 'InActive'}}
+              </span>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="sticky-action-column">Action</th>
+            <td mat-cell *matCellDef="let row;let i = index">
+              <!-- [hidden]="row.allowanceId === 100 || row.allowanceName === 'Gross Earning'" -->
+              <div class="d-flex justify-content-center align-items-center gap-2">
+                <img src="./assets/icons/dwnld_icons/icon_edit.svg" alt="edit-icon" class="action-icon"
+                  (click)="editSupplier(i,'edit-supplier')">
+                <img src="./assets/icons/dwnld_icons/icon_delete.svg" alt="delete-icon" class="action-icon"
+                  (click)="deleteSupplier(i)">
+              </div>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="suppliersDisplayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: suppliersDisplayedColumns;"></tr>
+
+          <!-- Row shown when there is no matching data. -->
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter</td>
+          </tr>
+        </table>
+      </div>
+      <!-- ------------------------------------------------------------------------- -->
+      <!-- Mat paginator -->
+      <!-- ------------------------------------------------------------------------- -->
+      <mat-paginator [length]="100" [pageSize]="5" [pageSizeOptions]="[5,15,25,50,100]"></mat-paginator>
+    </div>
+  </div>
+</mat-card>

@@ -1,0 +1,114 @@
+<!-- <h1>Angular Router App</h1>
+<nav>
+  <ul>
+    <li><a routerLink="/first-component" routerLinkActive="active" ariaCurrentWhenActive="page">First Component</a></li>
+    <li><a routerLink="/second-component" routerLinkActive="active" ariaCurrentWhenActive="page">Second Component</a>
+    </li>
+    <li><a routerLink="/first-component/first-component-child-a" routerLinkActive="active"
+        ariaCurrentWhenActive="page">First Component Child A</a></li>
+    <li><a routerLink="/first-component/first-component-child-b" routerLinkActive="active"
+        ariaCurrentWhenActive="page">First Component Child B</a></li>
+  </ul>
+</nav>
+The routed views render in the <router-outlet> -->
+<mat-toolbar [ngClass]="{ 'mobile': isMobile }" class="toolbar px-3">
+  <div *ngIf="!isMobile" class="toolbar-left">
+    <button mat-icon-button (click)="toggleCollapsed()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="app-title heading-2 bold-font">My App</span>
+  </div>
+
+  <div *ngIf="isMobile" class="toolbar-mobile">
+    <span class="app-title heading-2 bold-font">My App</span>
+    <button mat-icon-button (click)="toggleSidenav()" class="menu-icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+
+  <div *ngIf="!isMobile" class="toolbar-right">
+    <!-- Theme icon with Menu -->
+    <button mat-icon-button [matMenuTriggerFor]="languageMenu">
+      <i class="bi bi-translate"></i>
+    </button>
+    <!-- Theme Mat Menu -->
+    <mat-menu #languageMenu="matMenu" xPosition="before" class="p-2">
+      <button mat-menu-item class="menu-items">
+        <span class="me-3"> En &#x2022; </span>
+        <span> English</span>
+      </button>
+      <button mat-menu-item class="menu-items">
+        <span class="me-4"> Hi &#x2022; </span>
+        <span> हिन्दी</span>
+      </button>
+    </mat-menu>
+
+    <!-- Theme icon with Menu -->
+    <button mat-icon-button [matMenuTriggerFor]="themeMenu">
+      <i class="bi bi-sun"></i>
+    </button>
+    <!-- Theme Mat Menu -->
+    <mat-menu #themeMenu="matMenu" xPosition="before" class="p-2">
+      <button mat-menu-item class="menu-items">
+        <i class="bi bi-sun me-2"></i>
+        <span> Light</span>
+      </button>
+      <button mat-menu-item class="menu-items">
+        <i class="bi bi-moon-stars me-2"></i>
+        <span> Dark</span>
+      </button>
+      <button mat-menu-item class="menu-items">
+        <i class="bi bi-pc-display-horizontal me-2"></i>
+        <span> System</span>
+      </button>
+    </mat-menu>
+
+    <!-- Avatar with Menu -->
+    <button mat-icon-button [matMenuTriggerFor]="avatarMenu">
+      <img src="assets/images/user_avtar.jpg" alt="User Avatar">
+    </button>
+    <!-- Mat Menu -->
+    <mat-menu #avatarMenu="matMenu" xPosition="before" class="py-0">
+      <div class="d-flex align-items-center justify-content-start gap-2 border-bottom p-2">
+        <img width="40" height="40" src="assets/images/user_avtar.jpg" alt="">
+        <div class="d-flex flex-column user">
+          <p class="user-name m-0 p-0">Prashant Singh</p>
+          <p class="user-role m-0 p-0">Role: Admin</p>
+        </div>
+      </div>
+      <button mat-menu-item class="menu-items">
+        <i class="bi bi-person me-2"></i>
+        <span> My Profile</span>
+      </button>
+      <button mat-menu-item class="menu-items">
+        <i class="bi bi-bell me-2"></i>
+        <span> Notifications</span>
+        <span class="notification-badge"> 15</span>
+      </button>
+      <button mat-menu-item class="menu-items">
+        <i class="bi bi-gear me-2"></i>
+        <span> Settings</span>
+      </button>
+      <button mat-raised-button color="warn" class="menu-items logout-button mx-2 px-5 text-center">
+        <span class="me-2"> Logout</span>
+        <i class="bi bi-box-arrow-right"></i>
+      </button>
+    </mat-menu>
+  </div>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav [opened]="!isMobile || sidenavOpened" [mode]="isMobile ? 'over' : 'side'" class="content rounded my-3 ms-3"
+    [style.width]="!isMobile ? (collapsed() ? '70px' : '250px') : null" >
+    <app-sidenav [collapsed]="collapsed" (collapsedChanged)="menuClick($event)" (itemSelected)="onMenuItemSelected()"></app-sidenav>
+  </mat-sidenav>
+  <mat-sidenav-content [style.marginLeft]="'300px'" [style.marginRight]="'70px'"
+  [ngStyle]="{
+    'margin-left': !isMobile ? (collapsed() ? '140px' : '320px') : '70px',
+    'margin-right': '60px',
+    'transition': 'margin-left 0.3s ease-in-out, margin-right 0.3s ease-in-out'
+  }"
+  class="mt-3"
+>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

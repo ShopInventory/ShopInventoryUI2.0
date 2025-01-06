@@ -1,0 +1,79 @@
+.avatar .avatar-initial {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background-color: #eeedf0;
+  font-size: .9375rem;
+}
+
+.bg-label-products-container {
+  background-color: #e9e7fd !important;
+  color: #7367f0 !important;
+}
+
+.bg-label-customers-container {
+  background-color: #fff0e1 !important;
+  color: #ff9f43 !important;
+}
+
+.bg-label-sales-container {
+  background-color: #ffe2e3 !important;
+  color: #ff4c51 !important;
+}
+
+.bg-label-revenue-container {
+  background-color: #d6f4f8 !important;
+  color: #00bad1 !important;
+}
+
+.products-container:hover {
+  border-bottom: 1px solid #7367f0 !important;
+}
+
+.customers-container:hover {
+  border-bottom: 1px solid #ff9f43 !important;
+  // border-bottom: 1px solid #ff9f43 !important;
+}
+
+.sales-container:hover {
+  border-bottom: 1px solid #ff4c51 !important;
+}
+
+.revenue-container:hover {
+  border-bottom: 1px solid #00bad1 !important;
+}
+
+::ng-deep.mat-mdc-tab:not(.mdc-tab--active) {
+  height: 80px !important;
+  min-width: 100px;
+  border: 1px dashed lightgray !important;
+  border-radius: 5px;
+}
+
+::ng-deep.mat-mdc-tab.mdc-tab--active {
+  height: 80px !important;
+  min-width: 100px;
+  border: 1px solid #7367f0 !important;
+  border-bottom: 0px;
+  border-radius: 5px;
+}
+
+::ng-deep.mat-mdc-tab-labels {
+  gap: 20px;
+}
+
+::ng-deep.mat-mdc-tab .mdc-tab__text-label {
+  display: block !important;
+  align-items: center;
+}
+
+::ng-deep.mat-mdc-tab .mdc-tab-indicator__content--underline {
+  display: none !important;
+}

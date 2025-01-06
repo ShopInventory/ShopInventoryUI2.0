@@ -1,0 +1,178 @@
+
+
+
+.auth-bg {
+  background: url(/assets/images/backgrounds/login-background);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+
+}
+
+.h-n80 {
+  height: calc(100vh - 80px)
+}
+
+.or-border {
+  position: relative;
+  text-align: center;
+}
+
+
+.or-border:before {
+  content: "";
+  position: absolute;
+  left: 16px;
+  width: 100px;
+  top: 50%;
+  height: 1px;
+  background: #e0e6eb
+}
+
+.or-border:after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  width: 100px;
+  top: 50%;
+  height: 1px;
+  background: #e0e6eb
+}
+
+.left-border{
+  border-left: 2px solid #5d88ff15;
+  padding-left: 20px;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+
+.login-google-btn {
+  border: 1px solid #5d88ff31;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+
+  .show-text {
+    display: none;
+    width: 0ch;
+    line-height: 1;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+
+    /* Set colors for each letter */
+    .char-g {
+      color: red;
+    }
+
+    .char-o {
+      color: orange;
+    }
+
+    .char-o-2 {
+      color: #ffd500;
+    }
+
+    .char-g-2 {
+      color: green;
+    }
+
+    .char-l {
+      color: blue;
+    }
+
+    .char-e {
+      color: purple;
+    }
+  }
+
+  &:hover {
+    .show-text {
+      display: block;
+      width: 6ch;
+      animation: typing 0.3s steps(6);
+    }
+  }
+}
+
+.login-facebook-btn{
+  border: 1px solid #5d88ff31;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+
+  .show-text {
+    display: none;
+    width: 0ch;
+    line-height: 1;
+    color: #1877f2;
+    font-weight: 500;
+  }
+
+  &:hover {
+    .show-text {
+      display: block;
+      width: 8ch;
+      animation: typing .3s steps(8);
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+}
+
+.sign-in-with-text{
+  position: relative;
+
+  &::before{
+    position: absolute;
+    content: '';
+    width: 60%;
+    border-bottom: 1px solid #5d88ff31;
+    top: 22px;
+    left: 21%;
+  }
+
+  .text-with-bg{
+    background-color: white;
+    padding: 10px;
+    position: relative;
+  }
+}
+
+.cw-75{
+  width: 75%;
+}
+
+.animated-btn-effect{
+  position: relative;
+  &::before{
+    position: absolute;
+    content: '';
+    width: 0%;
+    background-color: black;
+    height: 100%;
+    border-radius: 20px;
+    left: 0px;
+  }
+
+  &:hover{
+    &::before{
+      width: 100%;
+      transition: .3s width ease;
+    }
+  }
+}
+
+
+
+@media screen and (max-width: 767px){
+  .cw-75{
+    width: 100%;
+  }
+}

@@ -1,0 +1,144 @@
+<!-- <p>create-customer-dialog works!</p> -->
+<!-- Add Customer Dialog -->
+<div class="common-dialog-modal" *ngIf="id=='add-customer' || id=='edit-customer'">
+  <!-- Header Section -->
+  <div class="section-card rounded p-2">
+    <div class="d-flex align-items-start justify-content-between">
+      <div class="p-2">
+        <h3>Add Customer</h3>
+        <p class="f-12 medium-font">Add details of your customer</p>
+      </div>
+      <div mat-dialog-close>
+        <img src="./assets/images/dialogIcons/cross.svg" alt="">
+      </div>
+    </div>
+  </div>
+
+  <!-- Customer Form -->
+  <form [formGroup]="addCustomerForm" (ngSubmit)="onSubmit()">
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- Customer details Expansion Panel -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- <pre>payEntitlement.value: {{addCustomerForm.getRawValue() | json}}</pre> -->
+    <!-- <pre>getFormValidationErrors: {{getFormValidationErrors() | json }}</pre> -->
+    <div class="common-custom-expansion content-height mt-2">
+      <!-- Accordion for Customer Information -->
+      <mat-accordion class="example-headers-align" #accordion="matAccordion" multi>
+        <mat-expansion-panel [expanded]="true" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="">
+              Customer Information
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div class="row">
+            <!-- Customer Image Upload Section -->
+            <div class="d-flex m-0 mb-4">
+              <!-- Add Image Button -->
+              <div class=" d-flex flex-column align-items-start file-uploader-container" *ngIf="images.length === 0">
+                <div class="d-flex flex-column align-items-center justify-content-center upload-lable-text btn"
+                  (click)="triggerFileUpload(fileInput)">
+                  <i class="bi bi-plus-square"></i>
+                  <label for="inputGroupFile">Add Profile Picture</label>
+                </div>
+                <input #fileInput type="file" accept=".jpg, .jpeg" class="form-control file-upload-input hidden"
+                  (change)="onFileSelected($event)" hidden>
+              </div>
+
+              <!-- Image Preview Section -->
+              <div class="d-flex flex-column align-items-start file-uploader-container" *ngIf="images.length > 0">
+                <div class=" upload-lable-text btn">
+                  <img *ngIf="images[0]" [src]="images[0].src" alt="Image Preview" class="image-preview">
+                  <div class="text-end delete-container">
+                    <i class="bi bi-x delete-icon" (click)="deleteImage()"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Customer Details Fields -->
+            <div class="col-lg-6 col-xl-6">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Customer Name</mat-label>
+                <input matInput formControlName="customerName">
+              </mat-form-field>
+            </div>
+
+            <div class="col-lg-6 col-xl-6">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Email Id</mat-label>
+                <input matInput formControlName="email">
+              </mat-form-field>
+            </div>
+
+            <div class="col-lg-6 col-xl-6">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Phone No.</mat-label>
+                <input matInput formControlName="phone">
+              </mat-form-field>
+            </div>
+
+            <div class="col-lg-6 col-xl-6">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>City</mat-label>
+                <input matInput formControlName="city">
+              </mat-form-field>
+            </div>
+
+            <div class="col-lg-6 col-xl-6">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Country</mat-label>
+                <input matInput formControlName="country">
+              </mat-form-field>
+            </div>
+
+            <div class="col-lg-6 col-xl-6">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Date</mat-label>
+                <input matInput [matDatepicker]="picker" (focus)="picker.open()" readonly
+                  formControlName="customerAddDate">
+              </mat-form-field>
+              <mat-datepicker #picker></mat-datepicker>
+            </div>
+
+            <div class="col-lg-6 col-xl-6">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Customer Status</mat-label>
+                <mat-select formControlName="customerStatus">
+                  <mat-option *ngFor="let status of customerStatusOptions" [value]="status.value">
+                    {{ status.status }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="col-lg-6 col-xl-6">
+              <div class="category-code-mat-form-field">
+                <mat-form-field appearance="outline" class="w-100 rounded-end-0 relative-field" color="primary">
+                  <mat-label>Customer Id</mat-label>
+                  <input type="text" matInput placeholder="Generate Customer Code" formControlName="customerId"
+                    class="cat-code-input">
+                  <button type="button" class="create-cat-code-button" mat-raised-button color="primary"
+                    (click)="generateCustomerCode()">Create Code</button>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <mat-form-field appearance="outline" class="w-100" color="primary">
+              <mat-label>Address</mat-label>
+              <textarea matInput formControlName="address"></textarea>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100" color="primary">
+              <mat-label>Description</mat-label>
+              <textarea matInput formControlName="customerDescription"></textarea>
+            </mat-form-field>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+    <div class="d-flex justify-content-end align-items-center py-2">
+      <button type="submit" mat-raised-button [disabled]="!isAddCustomerFormValid" color="primary">Submit</button>
+    </div>
+  </form>
+</div>

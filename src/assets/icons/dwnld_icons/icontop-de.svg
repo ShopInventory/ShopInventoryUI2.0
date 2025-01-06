@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="120" height="120" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.051" y1="0.038" x2="0.959" y2="0.927" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#96fffa"/>
+      <stop offset="0.542" stop-color="#2faaa5"/>
+      <stop offset="1" stop-color="#027670"/>
+    </linearGradient>
+    <filter id="Rectangle_7777" x="0" y="0" width="120" height="120" filterUnits="userSpaceOnUse">
+      <feOffset dx="10" dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feFlood flood-opacity="0.22"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_65410" data-name="Group 65410" transform="translate(-963 -356)">
+    <g id="Group_63761" data-name="Group 63761" transform="translate(943 156)">
+      <g transform="matrix(1, 0, 0, 1, 20, 200)" filter="url(#Rectangle_7777)">
+        <rect id="Rectangle_7777-2" data-name="Rectangle 7777" width="60" height="60" rx="10" transform="translate(20 20)" fill="url(#linear-gradient)"/>
+      </g>
+    </g>
+    <path id="chart-connected" d="M30.115,15.036a5.012,5.012,0,0,0-3.271-4.687l-.048-.114a12.636,12.636,0,0,0-6.643-6.8l-.413-.181a5,5,0,0,0-9.363,0l-.525.236a12.786,12.786,0,0,0-6.569,6.855,4.994,4.994,0,0,0-.038,9.371l.161.376a12.673,12.673,0,0,0,6.477,6.56l.493.221a5,5,0,0,0,9.361,0l.461-.2a12.79,12.79,0,0,0,6.662-6.944A5.019,5.019,0,0,0,30.115,15.036ZM15.058,2.509a2.51,2.51,0,1,1-2.51,2.51A2.51,2.51,0,0,1,15.058,2.509ZM5,12.529l.1.039.013-.031A2.4,2.4,0,1,1,5,12.529ZM15.058,27.605a2.51,2.51,0,1,1,2.51-2.51A2.51,2.51,0,0,1,15.058,27.605Zm4.885-3.621a5.008,5.008,0,0,0-9.771,0,10.155,10.155,0,0,1-4.054-4.058,5.008,5.008,0,0,0,.031-9.762,10.277,10.277,0,0,1,4.023-4.015,5.008,5.008,0,0,0,9.769,0,10.321,10.321,0,0,1,4.027,4.007,5.008,5.008,0,0,0,.019,9.769A10.3,10.3,0,0,1,19.943,23.984ZM25.1,17.545a2.51,2.51,0,1,1,2.51-2.51A2.51,2.51,0,0,1,25.1,17.545Z" transform="translate(997.942 390.938)" fill="#fff"/>
+  </g>
+</svg>

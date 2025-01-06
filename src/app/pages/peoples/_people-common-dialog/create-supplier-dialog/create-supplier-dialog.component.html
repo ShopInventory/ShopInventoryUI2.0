@@ -1,0 +1,267 @@
+<!-- <p>create-supplier-dialog works!</p> -->
+<!-- Add Supplier Dialog -->
+<!-- This section displays a modal dialog for adding or editing a supplier -->
+<div class="common-dialog-modal" *ngIf="id=='add-supplier' || id=='edit-supplier'">
+
+  <!-- Header Section -->
+  <div class="section-card rounded p-2">
+    <!-- The top header contains a title and a close button for the dialog -->
+    <div class="d-flex align-items-start justify-content-between">
+      <div class="p-2">
+        <!-- Title of the dialog -->
+        <h3>Add Supplier</h3>
+        <!-- Subtitle or description of the dialog -->
+        <p class="f-12 medium-font">Add details of your supplier</p>
+      </div>
+      <!-- Close button for the dialog -->
+      <div mat-dialog-close>
+        <img src="./assets/images/dialogIcons/cross.svg" alt="">
+      </div>
+    </div>
+  </div>
+
+  <!-- Supplier Form -->
+  <!-- Main form for adding/editing a supplier -->
+  <form [formGroup]="addSupplierForm" (ngSubmit)="onSubmit()">
+
+    <!-- Supplier details Expansion Panel -->
+    <!-- An accordion panel to capture supplier personal and bank information -->
+    <div class="common-custom-expansion content-height mt-2">
+      <mat-accordion class="example-headers-align" #accordion="matAccordion" multi>
+
+        <!-- Accordion for Supplier Information -->
+        <!-- This section contains the supplier's personal information fields -->
+        <mat-expansion-panel [expanded]="true" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Supplier Personal Information
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div class="row">
+
+            <!-- Supplier Image Upload Section -->
+            <!-- Allows the user to upload a profile picture for the supplier -->
+            <div class="d-flex m-0 mb-4">
+
+              <!-- Add Image Button -->
+              <!-- Shows an upload button when no image is uploaded -->
+              <div class=" d-flex flex-column align-items-start file-uploader-container" *ngIf="images.length === 0">
+                <div class="d-flex flex-column align-items-center justify-content-center upload-lable-text btn"
+                  (click)="triggerFileUpload(fileInput)">
+                  <i class="bi bi-plus-square"></i>
+                  <label for="inputGroupFile">Add Profile Picture</label>
+                </div>
+                <input #fileInput type="file" accept=".jpg, .jpeg" class="form-control file-upload-input hidden"
+                  (change)="onFileSelected($event)" hidden>
+              </div>
+
+              <!-- Image Preview Section -->
+              <!-- Shows the uploaded image with a delete option -->
+              <div class="d-flex flex-column align-items-start file-uploader-container" *ngIf="images.length > 0">
+                <div class="upload-lable-text btn">
+                  <img *ngIf="images[0]" [src]="images[0].src" alt="Image Preview" class="image-preview">
+                  <div class="text-end delete-container">
+                    <i class="bi bi-x delete-icon" (click)="deleteImage()"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Supplier Details Fields -->
+            <!-- This section contains form fields to capture the supplier's basic details -->
+
+            <!-- Supplier Name Field -->
+            <div class="col-lg-6 col-xl-6">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Supplier Name</mat-label>
+                <input matInput formControlName="supplierName">
+              </mat-form-field>
+            </div>
+
+            <!-- Supplier Company Name Field -->
+            <div class="col-lg-6 col-xl-6">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Name of Firm/Company</mat-label>
+                <input matInput formControlName="supplierCompanyName">
+              </mat-form-field>
+            </div>
+
+            <!-- Email Field -->
+            <div class="col-lg-6 col-xl-6">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Email Id</mat-label>
+                <input matInput formControlName="email">
+              </mat-form-field>
+            </div>
+
+            <!-- Phone Number Field -->
+            <div class="col-lg-6 col-xl-6">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Phone No.</mat-label>
+                <input matInput formControlName="phone">
+              </mat-form-field>
+            </div>
+
+            <!-- GST Number Field -->
+            <div class="col-lg-6 col-xl-6">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>GST No.</mat-label>
+                <input matInput formControlName="gstNo">
+              </mat-form-field>
+            </div>
+
+            <!-- PAN Number Field -->
+            <div class="col-lg-6 col-xl-6">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Pan No.</mat-label>
+                <input matInput formControlName="panNo">
+              </mat-form-field>
+            </div>
+
+            <!-- City Field -->
+            <div class="col-lg-6 col-xl-6">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>City</mat-label>
+                <input matInput formControlName="city">
+              </mat-form-field>
+            </div>
+
+            <!-- State Selection Field -->
+            <div class="col-lg-6 col-xl-6">
+              <app-generic-searchable-dropdown (onSelectionChangeEvent)="onStateIdChange($event)"
+                formControlName="state" [dataItems]="statesList " [labelField]="'State'"
+                [selectedItem]="this.addSupplierForm.get('state')?.value || this.newStateId" fValue="stateId"
+                fDisplay="stateNameEn">
+              </app-generic-searchable-dropdown>
+            </div>
+
+            <!-- Country Field -->
+            <div class="col-lg-6 col-xl-6">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Country</mat-label>
+                <input matInput formControlName="country">
+              </mat-form-field>
+            </div>
+
+            <!-- Supplier Add Date Field (with Datepicker) -->
+            <div class="col-lg-6 col-xl-6">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Date</mat-label>
+                <input matInput [matDatepicker]="picker" (focus)="picker.open()" readonly
+                  formControlName="supplierAddDate">
+              </mat-form-field>
+              <mat-datepicker #picker></mat-datepicker>
+            </div>
+
+            <!-- Supplier Status Field -->
+            <div class="col-lg-6 col-xl-6">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Supplier Status</mat-label>
+                <mat-select formControlName="supplierStatus">
+                  <mat-option *ngFor="let status of supplierStatusOptions" [value]="status.value">
+                    {{ status.status }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <!-- Supplier ID Field with Code Generation Button -->
+            <div class="col-lg-6 col-xl-6">
+              <div class="category-code-mat-form-field">
+                <mat-form-field appearance="outline" class="w-100 rounded-end-0 relative-field" color="primary">
+                  <mat-label>Supplier Id</mat-label>
+                  <input type="text" matInput placeholder="Generate Supplier Code" formControlName="supplierId"
+                    class="cat-code-input">
+                  <!-- Button to generate supplier code -->
+                  <button type="button" class="create-cat-code-button" mat-raised-button color="primary"
+                    (click)="generateSupplierCode()">Create Code</button>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <!-- Address Field -->
+            <mat-form-field appearance="outline" class="w-100" color="primary">
+              <mat-label>Address</mat-label>
+              <textarea matInput formControlName="address"></textarea>
+            </mat-form-field>
+
+            <!-- Description Field -->
+            <mat-form-field appearance="outline" class="w-100" color="primary">
+              <mat-label>Description</mat-label>
+              <textarea matInput formControlName="supplierDescription"></textarea>
+            </mat-form-field>
+          </div>
+        </mat-expansion-panel>
+
+        <!-- Accordion for Supplier Bank Information -->
+        <!-- This section contains the supplier's bank details for transactions -->
+        <mat-expansion-panel [expanded]="true" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Supplier Bank Information
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div class="row">
+            <!-- Supplier Bank Details Fields -->
+
+            <!-- Beneficiary Name Field -->
+            <div class="col-lg-6 col-xl-6">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Beneficiary Name</mat-label>
+                <input matInput formControlName="supplierBankBenificiaryName">
+              </mat-form-field>
+            </div>
+
+            <!-- IFSC Code Field -->
+            <div class="col-lg-6 col-xl-6">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>IFSC Code</mat-label>
+                <input matInput formControlName="supplierBankIfscCode">
+              </mat-form-field>
+            </div>
+
+            <!-- Bank Name Field -->
+            <div class="col-lg-6 col-xl-6">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Bank Name</mat-label>
+                <input matInput formControlName="supplierBankName">
+              </mat-form-field>
+            </div>
+
+            <!-- Branch Name Field -->
+            <div class="col-lg-6 col-xl-6">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Branch Name</mat-label>
+                <input matInput formControlName="supplierBankBranchName">
+              </mat-form-field>
+            </div>
+
+            <!-- Account Number Field -->
+            <div class="col-lg-6 col-xl-6">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Bank Account No.</mat-label>
+                <input matInput formControlName="supplierBankAccountNo">
+              </mat-form-field>
+            </div>
+
+            <!--Confirm Account Number Field -->
+            <div class="col-lg-6 col-xl-6">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Confirm Account No.</mat-label>
+                <input matInput formControlName="confirmBankAccountNo">
+              </mat-form-field>
+            </div>
+
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+
+    <!-- Submit and Cancel Buttons -->
+    <div class="d-flex justify-content-end px-4 py-3">
+      <button mat-raised-button type="submit" color="primary" [disabled]="addSupplierForm.invalid">Save</button>
+    </div>
+  </form>
+</div>

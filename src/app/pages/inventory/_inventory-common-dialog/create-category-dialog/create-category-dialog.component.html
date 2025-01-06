@@ -1,0 +1,91 @@
+<!-- <p>create-category-dialog works!</p> -->
+<div class="common-dialog-modal" *ngIf="id=='add-category' || id=='edit-category'">
+  <div class="section-card rounded p-2">
+    <div class="d-flex align-items-start justify-content-between">
+      <div class="p-2">
+        <h3>Add Category</h3>
+        <p class="f-12 medium-font">Add details of your category</p>
+      </div>
+      <div mat-dialog-close>
+        <img src="./assets/images/dialogIcons/cross.svg" alt="">
+      </div>
+    </div>
+  </div>
+
+  <form [formGroup]="addCategoryForm" (ngSubmit)="onSubmit()">
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- Category details Expansion Panel -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- <pre>payEntitlement.value: {{addCategoryForm.getRawValue() | json}}</pre> -->
+    <!-- <pre>getFormValidationErrors: {{getFormValidationErrors() | json }}</pre> -->
+    <div class="common-custom-expansion content-height mt-2">
+      <mat-accordion class="example-headers-align" #accordion="matAccordion" multi>
+        <mat-expansion-panel [expanded]="true" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="">
+              Category Information
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="row">
+            <div class="col-lg-6 col-xl-6">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Category Name</mat-label>
+                <input matInput formControlName="categoryName">
+              </mat-form-field>
+            </div>
+
+            <div class="col-lg-6 col-xl-6">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Date</mat-label>
+                <input matInput [matDatepicker]="picker" (focus)="picker.open()" readonly
+                  formControlName="categoryAddDate">
+              </mat-form-field>
+              <mat-datepicker #picker></mat-datepicker>
+            </div>
+
+            <div class="col-lg-6 col-xl-6">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Category Status</mat-label>
+                <mat-select formControlName="categoryStatus">
+                  <mat-option *ngFor="let status of categoryStatusOptions" [value]="status.value">
+                    {{ status.status }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <!-- <div class="col-lg-6 col-xl-4">
+              <div class="sku-mat-form-field">
+                <mat-form-field appearance="outline" class="w-100 rounded-end-0" color="primary">
+                  <mat-label>SKU</mat-label>
+                  <input type="text" matInput placeholder="Generate SKU code" formControlName="productSku">
+                  <button matSuffix type="button" class="p-4 rounded-start-0 h-100" mat-raised-button color="primary"
+                    (click)="generateSKU()">Create SKU</button>
+                </mat-form-field>
+              </div>
+            </div> -->
+            <div class="col-lg-6 col-xl-6">
+              <div class="category-code-mat-form-field">
+                <mat-form-field appearance="outline" class="w-100 rounded-end-0 relative-field" color="primary">
+                  <mat-label>Category Code</mat-label>
+                  <input type="text" matInput placeholder="Generate Category Code" formControlName="categoryCode"
+                    class="cat-code-input">
+                  <button type="button" class="create-cat-code-button" mat-raised-button color="primary"
+                    (click)="generateCategoryCode()">Create Code</button>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <mat-form-field appearance="outline" class="w-100" color="primary">
+              <mat-label>Description</mat-label>
+              <textarea matInput formControlName="categoryDescription"></textarea>
+            </mat-form-field>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+    <div class="d-flex justify-content-end align-items-center py-2">
+      <button type="submit" mat-raised-button [disabled]="!isAddCategoryFormValid" color="primary">Submit</button>
+    </div>
+  </form>
+</div>

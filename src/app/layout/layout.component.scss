@@ -1,0 +1,155 @@
+mat-toolbar {
+  position: relative;
+  // background-color: #f8f7fa;
+  z-index: 5;
+
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+}
+
+.toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  /* Optional spacing between items */
+}
+
+.toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  /* Optional spacing between items */
+}
+
+.toolbar-mobile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  .app-title {
+    text-align: center;
+    flex: 1;
+  }
+
+  .menu-icon {
+    margin-left: auto;
+  }
+}
+
+button[mat-icon-button] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+button[mat-icon-button] img {
+  width: 100%;
+  /* Adjust the size to fit */
+  height: 100%;
+  /* Maintain aspect ratio */
+  max-width: 24px;
+  /* Match typical icon size */
+  max-height: 24px;
+  border-radius: 50%;
+  /* Make it circular */
+  object-fit: cover;
+  /* Ensure the image scales properly */
+}
+
+
+mat-sidenav-container {
+  height: calc(100vh - 64px);
+  background-color: #edf0f2;
+}
+
+.content {
+  // background-color: #f8f7fa;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+mat-sidenav {
+  transition: width 0.3s ease-in-out;
+}
+
+img {
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.user {
+  .user-name {
+    font-size: 15px;
+  }
+
+  .user-role {
+    font-size: 13px;
+    opacity: 70%;
+  }
+}
+
+.menu-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    font-size: 14px;
+  }
+}
+
+.mat-mdc-menu-item {
+  min-height: 40px !important;
+}
+
+.notification-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  /* Adjust size as needed */
+  height: 25px;
+  /* Adjust size as needed */
+  border-radius: 50%;
+  background-color: red;
+  /* Badge background color */
+  color: white;
+  /* Text color */
+  position: absolute;
+  /* For positioning */
+  top: 8px;
+  /* Adjust to position the badge */
+  right: 10px;
+  /* Adjust to position the badge */
+}
+
+.menu-items .notification-badge {
+  font-size: 12px !important;
+  /* Ensure the font-size is applied */
+}
+
+
+button[mat-icon-button] {
+  position: relative;
+}
+
+.toolbar {
+  &.mobile {
+    justify-content: space-between;
+
+    .app-title {
+      text-align: center;
+    }
+
+    .menu-icon {
+      margin-left: auto;
+    }
+  }
+}

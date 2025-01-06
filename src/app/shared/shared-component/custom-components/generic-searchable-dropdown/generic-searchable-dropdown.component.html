@@ -1,0 +1,33 @@
+<p>generic-searchable-dropdown works!</p>
+<mat-form-field [appearance]="appearanceType" class="w-100">
+  <mat-label>{{labelField}}</mat-label>
+  <mat-select [multiple]="isMultiple" [(ngModel)]="selectedItem" (ngModelChange)="ondropDownChange($event)"
+    (openedChange)="openedChange($event,searchTextBox,'dataItemsList')" disableOptionCentering
+    panelClass="mat-select-panel generic-custom-multi-select-panel">
+
+
+    <mat-form-field appearance="outline" class="w-100 p-2 pb-0 mt-2">
+      <mat-label>Search</mat-label>
+      <input #searchTextBox matInput type="text" placeholder="Type here to search..."
+        (keyup)="filterApply($event,'dataItemsList',fDisplay)" (keydown)="$event.stopPropagation()">
+      <div *ngIf="searchTextBox.value" matSuffix (click)="clearSearchBox(searchTextBox, 'dataItemsList')">
+        <mat-icon class="search-icon-color cursor-pointer">close</mat-icon>
+      </div>
+    </mat-form-field>
+
+    <mat-checkbox [checked]="checkIfAllChecked()" *ngIf="showSelectAll" (change)="onSelectAllChange($event)"
+      color="primary" class="ps-4 py-2">Select All</mat-checkbox>
+
+
+    <div *ngIf="selectedDataList['dataItemsList'].length === 0">
+      <p class="bodytext-color m-0 pt-0 p-2 f-16">No results found!</p>
+    </div>
+
+    <div class="generic-custom-mat-option  overflow-auto">
+
+      <mat-option [disabled]="isDisabled(item)" [matTooltip]="displayText(item)" matTooltipPosition="right"
+        (onSelectionChange)="onSelectionChangeVal($event,item)" *ngFor="let item of selectedDataList['dataItemsList']"
+        [value]="fValue ? item[fValue] : item">{{ displayText(item) }}</mat-option>
+    </div>
+  </mat-select>
+</mat-form-field>

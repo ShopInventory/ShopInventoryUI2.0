@@ -1,0 +1,79 @@
+<p>create-brand-dialog works!</p>
+<div class="common-dialog-modal" *ngIf="id=='add-brand' || id=='edit-brand'">
+  <div class="d-flex align-items-center justify-content-between bg-light-primary px-4 py-3">
+    <div class="d-flex flex-column">
+      <h4 class="page-title m-0 f-s-20 f-w-600">Add Brand</h4>
+      <h6 class="page-title m-0 f-s-20 f-w-600">Add details of your brand</h6>
+    </div>
+    <div mat-dialog-close>
+      <img src="./assets/images/dialogIcons/cross.svg" alt="">
+    </div>
+  </div>
+
+  <form [formGroup]="addBrandForm" (ngSubmit)="onSubmit()">
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- Brand details Expansion Panel -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- <pre>payEntitlement.value: {{addBrandForm.getRawValue() | json}}</pre> -->
+    <!-- <pre>getFormValidationErrors: {{getFormValidationErrors() | json }}</pre> -->
+    <div class="common-custom-expansion content-height mt-2">
+      <mat-accordion class="example-headers-align" #accordion="matAccordion" multi>
+        <mat-expansion-panel [expanded]="true" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="">
+              Brand Information
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="row">
+
+            <div class="col-lg-6 col-xl-6">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Brand Name</mat-label>
+                <input matInput formControlName="brandName">
+              </mat-form-field>
+            </div>
+
+            <div class="col-lg-6 col-xl-6">
+              <div class="category-code-mat-form-field">
+                <mat-form-field appearance="outline" class="w-100 rounded-end-0 relative-field" color="primary">
+                  <mat-label>Brand Code</mat-label>
+                  <input type="text" matInput placeholder="Generate Brand Code" formControlName="brandCode"
+                    class="cat-code-input">
+                  <button type="button" class="create-cat-code-button" mat-raised-button color="primary"
+                    (click)="generateBrandCode()">Create Code</button>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-xl-6">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Date</mat-label>
+                <input matInput [matDatepicker]="picker" (focus)="picker.open()" readonly
+                  formControlName="brandAddDate">
+              </mat-form-field>
+              <mat-datepicker #picker></mat-datepicker>
+            </div>
+
+            <div class="col-lg-6 col-xl-6">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Brand Status</mat-label>
+                <mat-select formControlName="brandStatus">
+                  <mat-option *ngFor="let status of brandStatusOptions" [value]="status.value">
+                    {{ status.status }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <mat-form-field appearance="outline" class="w-100" color="primary">
+              <mat-label>Description</mat-label>
+              <textarea matInput formControlName="brandDescription"></textarea>
+            </mat-form-field>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+    <div class="d-flex justify-content-end align-items-center py-2">
+      <button type="submit" mat-raised-button [disabled]="!isAddBrandFormValid" color="primary">Submit</button>
+    </div>
+  </form>
+</div>
