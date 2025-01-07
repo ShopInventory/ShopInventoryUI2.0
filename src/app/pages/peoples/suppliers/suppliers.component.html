@@ -13,28 +13,38 @@
   </div>
 
   <div class="supplier-table-container">
-    <div class="d-flex align-items-center justify-content-between mt-3">
-      <div class="col-12 col-sm-12 col-md-8 col-lg-6 col-xl-4">
+    <div class="d-flex flex-wrap align-items-center justify-content-between mt-3">
+      <!-- Search Bar -->
+      <div class="col-12 col-md-6 col-lg-6 col-xl-6 mb-2">
         <mat-form-field appearance="outline" class="w-100">
           <mat-label>Search</mat-label>
-          <input matInput placeholder="Search Supplier Name, Email Id, Phone No. etc" (keyup)="filterApply($event)"
-            #input />
+          <input
+            matInput
+            placeholder="Search Supplier Name, Email Id, Phone No. etc"
+            (keyup)="filterApply($event)"
+            #input
+          />
           <mat-icon matSuffix class="search-icon-color">search</mat-icon>
         </mat-form-field>
       </div>
-      <div>
-        <button mat-raised-button class="mx-2" (click)="pdfDownload()">
+
+      <!-- Buttons -->
+      <div class="d-flex flex-wrap justify-content-md-end">
+        <button mat-raised-button class="mx-1 my-1" (click)="pdfDownload()">
           <i class="bi bi-filetype-pdf f-20 text-danger"></i>
         </button>
-        <button mat-raised-button class="mx-2" (click)="excelDownload()">
+        <button mat-raised-button class="mx-1 my-1" (click)="excelDownload()">
           <i class="bi bi-filetype-xls f-20 text-success"></i>
         </button>
-        <button mat-raised-button class="mx-2" (click)="print()">
+        <button mat-raised-button class="mx-1 my-1" (click)="print()">
           <i class="bi bi-printer f-20 text-primary"></i>
         </button>
-        <button mat-raised-button color="primary" (click)="addSupplier('add-supplier')">Add Supplier</button>
+        <button mat-raised-button color="primary" class="mx-1 my-1" (click)="addSupplier('add-supplier')">
+          Add Supplier
+        </button>
       </div>
     </div>
+
     <div class="common-custom-expansion my-3">
       <!-- ------------------------------------------------------------------------- -->
       <!-- Supplier Table Container -->
