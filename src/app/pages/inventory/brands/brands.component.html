@@ -18,8 +18,12 @@
       <div class="col-12 col-md-6 col-lg-6 col-xl-6 mb-2">
         <mat-form-field appearance="outline" class="w-100">
           <mat-label>Search</mat-label>
-          <input matInput placeholder="Search Parent Category, Sub Category, Sub Category Code etc"
-            (keyup)="filterApply($event)" #input />
+          <input
+            matInput
+            placeholder="Search Parent Category, Sub Category, Sub Category Code etc"
+            (keyup)="filterApply($event)"
+            #input
+          />
           <mat-icon matSuffix class="search-icon-color">search</mat-icon>
         </mat-form-field>
       </div>
