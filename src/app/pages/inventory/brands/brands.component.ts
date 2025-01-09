@@ -11,10 +11,14 @@ import { CommonDialogService } from '@services/common-dialog-services/common-dia
 import { LoaderService } from '@services/loader/loader.service';
 import { InventoryService } from '../_inventory-services/inventory.service';
 import { first } from 'rxjs';
+import { jsPDF } from 'jspdf';
+import autoTable from 'jspdf-autotable';
+import * as XLSX from 'xlsx';
+import { GenericTableComponent } from 'src/app/shared/shared-component/custom-components/generic-table/generic-table.component';
 
 @Component({
   selector: 'app-brands',
-  imports: [CommonModule, MaterialModule],
+  imports: [CommonModule, MaterialModule, GenericTableComponent],
   templateUrl: './brands.component.html',
   styleUrl: './brands.component.scss'
 })
@@ -24,10 +28,21 @@ export class BrandsComponent {
   @ViewChild(MatSort) sort!: MatSort;
 
   brandsDataSource = new MatTableDataSource<any>();
-  brandsDisplayedColumns: string[] = ['srNo', 'brandName', 'brandCode', 'created', 'status', 'action'];
+  brandsDisplayedColumns: string[] = ['srNo', 'brandName', 'brandCode', 'brandAddDate', 'status', 'action'];
 
   panelOpenState = false;
   brandsData: any = [];
+
+  isHovered: boolean = false;
+
+  productColumnDefs = [
+    { header: 'Sr. No.', field: 'srNo' },
+    { header: 'Brand', field: 'brandName' },
+    { header: 'Brand Code', field: 'brandCode' },
+    { header: 'Status', field: 'status' },
+    { header: 'Created', field: 'brandAddDate', type: 'date' },  // Customize for date fields
+    { header: 'Action', field: 'action' },
+  ];
 
   readonly dialog = inject(MatDialog);
   readonly inventoryService = inject(InventoryService);
@@ -120,6 +135,7 @@ export class BrandsComponent {
         console.log('brandsDataSource', this.brandsDataSource.data);
         this.loader.stopLoader();
         this.brandsDataSource.data = [...this.brandsData];
+        console.log('brandsDataSource after', this.brandsDataSource.data);
       });
     });
   }
@@ -138,18 +154,8 @@ export class BrandsComponent {
 
     dialogRef.afterClosed().subscribe((data: any) => {
       this.inventoryService?.brandCast?.pipe(first()).subscribe((updatedBrand: any) => {
-        this.brandsData = [];
-        if (Array.isArray(updatedBrand)) {
-          this.brandsData = updatedBrand;
-        } else {
-          const brandExists = this.brandsData.some(
-            (brand: any) => brand.brandCode == updatedBrand.brandCode
-          );
-          if (!brandExists) {
-            this.brandsData.push(updatedBrand);
-          }
-        }
-        this.brandsDataSource.data[data.index] = updatedBrand;
+        this.brandsData[data.index] = updatedBrand;
+        this.brandsDataSource.data = [...this.brandsData];
         this.brandsDataSource._updateChangeSubscription();
         this.loader.stopLoader();
       });
@@ -174,5 +180,70 @@ export class BrandsComponent {
     // setTimeout(() => {
     //   this.loader.stopLoader();
     // }, 1000);
+  }
+
+  // Utility functions
+  onHover(hoverState: boolean) {
+    this.isHovered = hoverState;
+  }
+  pdfDownload() {
+    const doc = new jsPDF();
+
+    // Define table headers based on displayed columns
+    const headers = [
+      'Sr. No.',
+      'Brand',
+      'Brand Code',
+      'Created',
+      'Status'
+    ];
+
+    // Access the data from the MatTableDataSource
+    const rows = this.brandsDataSource.data.map((row: any, index: number) => [
+      index + 1, // Sr. No.
+      row.brandName,
+      row.brandCode,
+      row.supplierAddDate, // Format as needed
+      row.brandStatus === '1' ? 'Active' : 'Inactive'
+    ]);
+
+    // Generate the PDF table
+    autoTable(doc, {
+      head: [headers],
+      body: rows,
+    });
+
+    // Save the PDF file
+    doc.save('Brands.pdf');
+  }
+
+
+
+  excelDownload() {
+    const worksheet = XLSX.utils.json_to_sheet(this.brandsDataSource.data);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Brands');
+    XLSX.writeFile(workbook, 'Brands.xlsx');
+  }
+
+  print() {
+    const printContent = document.querySelector('.brand-table-container')?.innerHTML;
+    const printWindow = window.open('', '', 'width=800,height=600');
+    if (printWindow && printContent) {
+      printWindow.document.write(`<html><head><title>Print</title></head><body>${printContent}</body></html>`);
+      printWindow.document.close();
+      printWindow.print();
+    }
+  }
+
+
+  onEditProduct(index: any) {
+    console.log('Edit product', index);
+    this.editBrand(index, 'edit-brand');
+  }
+
+  onDeleteProduct(index: any) {
+    console.log('Delete product', index);
+    this.deleteBrand(index);
   }
 }
