@@ -61,7 +61,7 @@ export class CreateBrandDialogComponent {
       brandName: ['', Validators.required],
       brandCode: ['', Validators.required],
       brandAddDate: ['', Validators.required],
-      brandStatus: ['', Validators.required],
+      status: ['', Validators.required],
       brandDescription: ['', Validators.required],
     });
   }
