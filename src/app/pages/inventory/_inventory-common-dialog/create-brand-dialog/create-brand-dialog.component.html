@@ -1,12 +1,14 @@
-<p>create-brand-dialog works!</p>
+<!-- <p>create-brand-dialog works!</p> -->
 <div class="common-dialog-modal" *ngIf="id=='add-brand' || id=='edit-brand'">
-  <div class="d-flex align-items-center justify-content-between bg-light-primary px-4 py-3">
-    <div class="d-flex flex-column">
-      <h4 class="page-title m-0 f-s-20 f-w-600">Add Brand</h4>
-      <h6 class="page-title m-0 f-s-20 f-w-600">Add details of your brand</h6>
-    </div>
-    <div mat-dialog-close>
-      <img src="./assets/images/dialogIcons/cross.svg" alt="">
+  <div class="section-card rounded p-2">
+    <div class="d-flex align-items-start justify-content-between">
+      <div class="p-2">
+        <h3>Add Brand</h3>
+        <p class="f-12 medium-font">Add details of your brand</p>
+      </div>
+      <div mat-dialog-close>
+        <img src="./assets/images/dialogIcons/cross.svg" alt="">
+      </div>
     </div>
   </div>
 
@@ -25,6 +27,29 @@
             </mat-panel-title>
           </mat-expansion-panel-header>
           <div class="row">
+            <!-- Brand Image Upload Section -->
+            <div class="d-flex m-0 mb-4">
+              <!-- Add Image Button -->
+              <div class=" d-flex flex-column align-items-start file-uploader-container" *ngIf="images.length === 0">
+                <div class="d-flex flex-column align-items-center justify-content-center upload-lable-text btn"
+                  (click)="triggerFileUpload(fileInput)">
+                  <i class="bi bi-plus-square"></i>
+                  <label for="inputGroupFile">Add Brand Logo</label>
+                </div>
+                <input #fileInput type="file" accept=".jpg, .jpeg" class="form-control file-upload-input hidden"
+                  (change)="onFileSelected($event)" hidden>
+              </div>
+
+              <!-- Image Preview Section -->
+              <div class="d-flex flex-column align-items-start file-uploader-container" *ngIf="images.length > 0">
+                <div class=" upload-lable-text btn">
+                  <img *ngIf="images[0]" [src]="images[0].src" alt="Image Preview" class="image-preview">
+                  <div class="text-end delete-container">
+                    <i class="bi bi-x delete-icon" (click)="deleteImage()"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <div class="col-lg-6 col-xl-6">
               <mat-form-field appearance="outline" class="w-100" color="primary">
@@ -57,9 +82,9 @@
             <div class="col-lg-6 col-xl-6">
               <mat-form-field appearance="outline" class="w-100" color="primary">
                 <mat-label>Brand Status</mat-label>
-                <mat-select formControlName="brandStatus">
-                  <mat-option *ngFor="let status of brandStatusOptions" [value]="status.value">
-                    {{ status.status }}
+                <mat-select formControlName="status">
+                  <mat-option *ngFor="let brandStatus of brandStatusOptions" [value]="brandStatus.value">
+                    {{ brandStatus.status }}
                   </mat-option>
                 </mat-select>
               </mat-form-field>

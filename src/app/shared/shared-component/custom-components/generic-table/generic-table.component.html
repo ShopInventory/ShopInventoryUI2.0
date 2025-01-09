@@ -1,0 +1,57 @@
+<!-- <p>generic-table works!</p> -->
+
+<table mat-table [dataSource]="dataSource" matSort matSortDirection="desc" mat-table-auto-rows>
+  <!-- Dynamically generating columns using @for -->
+
+  @for (column of columnDefs; track $index) {
+  <ng-container [matColumnDef]="column.field">
+    @if (column.field == 'action') {
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="sticky-action-column">{{ column.header }}</th>
+    } @else {
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ column.header }}</th>
+    }
+    @if (column.field == 'srNo') {
+    <td mat-cell *matCellDef="let row; let i = index">
+      <p class="m-0">{{ i + 1 }}</p>
+    </td>
+    } @else if (column.field == 'action') {
+    <td mat-cell *matCellDef="let row; let i = index">
+      <div class="d-flex justify-content-center align-items-center gap-2">
+        <img src="./assets/icons/dwnld_icons/icon_edit.svg" alt="edit-icon" class="action-icon" (click)="onEdit(i)">
+        <img src="./assets/icons/dwnld_icons/icon_delete.svg" alt="delete-icon" class="action-icon"
+          (click)="onDelete(i)">
+      </div>
+    </td>
+    } @else if(column.field == 'status'){
+      <td mat-cell *matCellDef="let row">
+        <p class="m-0" [ngClass]="{'status-button-active': row[column.field] == '1', 'status-button-inactive': row[column.field] == '0'}">{{ row[column.field] == '1' ? 'Active' : 'InActive' }}</p>
+      </td>
+      } @else {
+    <td mat-cell *matCellDef="let row">
+      <p class="m-0">{{ column.type == 'date' ? (row[column.field] | date) : row[column.field] }}</p>
+    </td>
+    }
+  </ng-container>
+  }
+
+  <!-- Action Column for Edit/Delete -->
+  <!-- <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="sticky-action-column">Action</th>
+    <td mat-cell *matCellDef="let row; let i = index">
+      <div class="d-flex justify-content-center align-items-center gap-2">
+        <img src="./assets/icons/dwnld_icons/icon_edit.svg" alt="edit-icon" class="action-icon" (click)="onEdit(row)">
+        <img src="./assets/icons/dwnld_icons/icon_delete.svg" alt="delete-icon" class="action-icon"
+          (click)="onDelete(row)">
+      </div>
+    </td>
+  </ng-container> -->
+
+  <!-- Header and Rows -->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  <!-- No Data Row -->
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="100%">No data matching the filter</td>
+  </tr>
+</table>
