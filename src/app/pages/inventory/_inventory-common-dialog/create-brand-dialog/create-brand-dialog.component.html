@@ -1,4 +1,4 @@
-<p>create-brand-dialog works!</p>
+<!-- <p>create-brand-dialog works!</p> -->
 <div class="common-dialog-modal" *ngIf="id=='add-brand' || id=='edit-brand'">
   <div class="section-card rounded p-2">
     <div class="d-flex align-items-start justify-content-between">
@@ -82,7 +82,7 @@
             <div class="col-lg-6 col-xl-6">
               <mat-form-field appearance="outline" class="w-100" color="primary">
                 <mat-label>Brand Status</mat-label>
-                <mat-select formControlName="brandStatus">
+                <mat-select formControlName="status">
                   <mat-option *ngFor="let brandStatus of brandStatusOptions" [value]="brandStatus.value">
                     {{ brandStatus.status }}
                   </mat-option>
