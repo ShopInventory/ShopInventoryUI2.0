@@ -18,28 +18,37 @@
       <div class="col-12 col-md-6 col-lg-6 col-xl-6 mb-2">
         <mat-form-field appearance="outline" class="w-100">
           <mat-label>Search</mat-label>
-          <input
-            matInput
-            placeholder="Search Parent Category, Sub Category, Sub Category Code etc"
-            (keyup)="filterApply($event)"
-            #input
-          />
+          <input matInput placeholder="Search Parent Category, Sub Category, Sub Category Code etc"
+            (keyup)="filterApply($event)" #input />
           <mat-icon matSuffix class="search-icon-color">search</mat-icon>
         </mat-form-field>
       </div>
 
       <!-- Buttons -->
       <div class="d-flex flex-wrap justify-content-md-end">
-        <button mat-raised-button class="mx-1 my-1">
-          <i class="bi bi-filetype-pdf f-20 text-danger"></i>
+        <button mat-raised-button color="primary" class="hover-rotate  mx-1 my-1" (click)="addBrand('add-brand')">
+          <i class="bi bi-plus f-20 icon"></i>
+          <span class="text">Add Brand</span>
         </button>
-        <button mat-raised-button class="mx-1 my-1">
-          <i class="bi bi-filetype-xls f-20 text-success"></i>
+        <!-- Theme icon with Menu -->
+        <button mat-raised-button color="primary" class="mx-1 my-1" [matMenuTriggerFor]="languageMenu">
+          <i class="bi bi-three-dots-vertical"></i>
         </button>
-        <button mat-raised-button class="mx-1 my-1">
-          <i class="bi bi-printer f-20 text-primary"></i>
-        </button>
-        <button mat-raised-button color="primary" class="mx-1 my-1" (click)="addBrand('add-brand')">Add Brand</button>
+        <!-- Theme Mat Menu -->
+        <mat-menu #languageMenu="matMenu" xPosition="before" class="p-2">
+          <button mat-menu-item class="menu-items" (click)="pdfDownload()">
+            <i class="bi bi-filetype-pdf f-20 text-danger me-2"></i>
+            <span> Export PDF</span>
+          </button>
+          <button mat-menu-item class="menu-items" (click)="excelDownload()">
+            <i class="bi bi-filetype-xls f-20 text-success me-2"></i>
+            <span> Export XLS</span>
+          </button>
+          <button mat-menu-item class="menu-items" (click)="print()">
+            <i class="bi bi-printer f-20 text-primary me-2"></i>
+            <span> Print</span>
+          </button>
+        </mat-menu>
       </div>
     </div>
 
@@ -50,16 +59,14 @@
       <div class="">
         <!-- <pre>New subCategories Data: {{subCategoriesData | json}}</pre> -->
 
-        <table mat-table [dataSource]="brandsDataSource" class="" matSort matSortDirection="desc" mat-table-auto-rows>
-          <!-- Number Column -->
+        <!-- <table mat-table [dataSource]="brandsDataSource" class="" matSort matSortDirection="desc" mat-table-auto-rows>
           <ng-container matColumnDef="srNo">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Sr. No.</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Sr.. No.</th>
             <td mat-cell *matCellDef="let row;let i = index">
               <p class="m-0">{{i + 1}}</p>
             </td>
           </ng-container>
 
-          <!-- Title Column -->
           <ng-container matColumnDef="brandName">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Brand</th>
             <td mat-cell *matCellDef="let row">
@@ -67,7 +74,6 @@
             </td>
           </ng-container>
 
-          <!-- Title Column -->
           <ng-container matColumnDef="brandCode">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Brand Code</th>
             <td mat-cell *matCellDef="let row">
@@ -75,7 +81,6 @@
             </td>
           </ng-container>
 
-          <!-- Created Column -->
           <ng-container matColumnDef="created">
             <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header>Created</th>
             <td mat-cell *matCellDef="let row">
@@ -83,7 +88,6 @@
             </td>
           </ng-container>
 
-          <!-- Status Column -->
           <ng-container matColumnDef="status">
             <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header>Status</th>
             <td mat-cell *matCellDef="let row">
@@ -97,7 +101,6 @@
           <ng-container matColumnDef="action">
             <th mat-header-cell *matHeaderCellDef mat-sort-header class="sticky-action-column">Action</th>
             <td mat-cell *matCellDef="let row;let i = index">
-              <!-- [hidden]="row.allowanceId === 100 || row.allowanceName === 'Gross Earning'" -->
               <div class="d-flex justify-content-center align-items-center gap-2">
                 <img src="./assets/icons/dwnld_icons/icon_edit.svg" alt="edit-icon" class="action-icon"
                   (click)="editBrand(i,'edit-brand')">
@@ -110,11 +113,15 @@
           <tr mat-header-row *matHeaderRowDef="brandsDisplayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: brandsDisplayedColumns;"></tr>
 
-          <!-- Row shown when there is no matching data. -->
           <tr class="mat-row" *matNoDataRow>
             <td class="mat-cell" colspan="4">No data matching the filter</td>
           </tr>
-        </table>
+        </table> -->
+
+        <app-generic-table [dataSource]="brandsDataSource" [displayedColumns]="brandsDisplayedColumns"
+          [columnDefs]="productColumnDefs" (editEvent)="onEditProduct($event)" (deleteEvent)="onDeleteProduct($event)">
+        </app-generic-table>
+
       </div>
       <!-- ------------------------------------------------------------------------- -->
       <!-- Mat paginator -->

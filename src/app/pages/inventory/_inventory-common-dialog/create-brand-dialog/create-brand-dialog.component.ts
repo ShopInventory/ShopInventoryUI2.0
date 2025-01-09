@@ -48,7 +48,7 @@ export class CreateBrandDialogComponent {
     this.dialogRef.disableClose = true;
     this.id = this.data.id;
     this.index = this.data.index;
-    this.selectedBrand = this.data.category;
+    this.selectedBrand = this.data.brand;
   }
 
   ngOnInit(): void {
@@ -61,7 +61,7 @@ export class CreateBrandDialogComponent {
       brandName: ['', Validators.required],
       brandCode: ['', Validators.required],
       brandAddDate: ['', Validators.required],
-      brandStatus: ['', Validators.required],
+      status: ['', Validators.required],
       brandDescription: ['', Validators.required],
     });
   }
@@ -70,6 +70,7 @@ export class CreateBrandDialogComponent {
     if (this.id == 'edit-brand') {
       this.editBrand(this.selectedBrand);
       console.log('index', this.index);
+      console.log('selectedBrand', this.selectedBrand);
     }
   }
 
@@ -108,13 +109,28 @@ export class CreateBrandDialogComponent {
   }
 
   editBrand(selectedBrand: any) {
-    this.addBrandForm.patchValue({
-      brandName: selectedBrand?.brandName,
-      brandCode: selectedBrand?.brandCode,
-      brandAddDate: selectedBrand?.brandAddDate,
-      brandStatus: selectedBrand?.brandStatus,
-      brandDescription: selectedBrand?.brandDescription,
-    })
+    // this.addBrandForm.patchValue({
+    //   brandName: selectedBrand?.brandName,
+    //   brandCode: selectedBrand?.brandCode,
+    //   brandAddDate: selectedBrand?.brandAddDate,
+    //   brandStatus: selectedBrand?.brandStatus,
+    //   brandDescription: selectedBrand?.brandDescription,
+    // })
+
+    this.addBrandForm.patchValue({ ...selectedBrand });
+
+    // If a brand logo image exists, update the image array
+    if (selectedBrand?.profileImage && Array.isArray(selectedBrand?.profileImage)) {
+      this.images = selectedBrand?.profileImage.map((image: any) => ({
+        src: image.src, // Image source (base64 or URL)
+        name: image.name, // Image name
+        size: image.size, // Image size (in KB or appropriate unit)
+        type: image.type // MIME type of the image
+      }));
+    } else {
+      // Clear images if no productImages exist
+      this.images = [];
+    }
   }
 
   /*--------
@@ -124,6 +140,11 @@ export class CreateBrandDialogComponent {
     console.log('addBrandForm Value', this.addBrandForm?.value);
 
     let formValue: any = this.addBrandForm?.value;
+
+    // Include image data in the form value
+    if (this.images.length > 0) {
+      formValue.profileImage = this.images;
+    }
 
     this.cd.openConfirmModal('Are you sure you want to appove the request?', () => {
       this.loader.startLoader();
@@ -151,5 +172,52 @@ export class CreateBrandDialogComponent {
       }
     });
     return result;
+  }
+
+
+  // Trigger file input click
+  triggerFileUpload(fileInput: HTMLInputElement) {
+    fileInput.click();
+  }
+
+  // Handle file selection and validate file type
+  onFileSelected(event: any) {
+    const file = event.target.files[0]; // Get the first selected file
+    const fileType = file.type.toLowerCase(); // Get the file type in lowercase
+
+    if (file) {
+      // Check if the file type is not JPEG or JPG
+      if (fileType !== 'image/jpeg' && fileType !== 'image/jpg') {
+        // Display alert if the file type is not allowed
+        alert('Only JPG or JPEG file format is allowed.');
+        // Clear the input field
+        event.target.value = null;
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        const base64String = e.target.result;
+
+        // Log the base64 encoded string to the console
+        console.log('Base64 Image:', base64String);
+
+        this.images = []; // Clear any existing image
+        this.images.push({
+          src: base64String, // base64 encoded image data
+          name: file.name,
+          size: (file.size / 1024).toFixed(2), // Size in KB
+          type: file.type
+        });
+      };
+      reader.readAsDataURL(file); // Convert image to base64 format
+    }
+    event.target.value = ''; // Clear the input after upload
+  }
+
+  // Delete the image from the preview
+  // Remove selected image
+  deleteImage() {
+    this.images = []; // Clear the image array
   }
 }
