@@ -42,6 +42,10 @@ export class InventoryService {
     this.brand.next(data);
   }
 
+  saveBrandDetails(data: any) {
+    return this.http.post(shopInventoryEndpoints.saveBrandDetails, data);
+  }
+
   saveCategoryDetails(data: any) {
     return this.http.post(shopInventoryEndpoints.saveCategoryDetails, data);
   }

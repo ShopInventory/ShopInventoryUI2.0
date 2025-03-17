@@ -138,12 +138,12 @@ img {
 .sidebar-list {
   display: flex;
   flex-direction: column;
-  height: 92vh;
+  height: 82vh;
   /* Take up the full height of the viewport */
   // overflow-y: auto; /* Allow scrolling */
 }
 
-.sidebar-list .spacer {
+.spacer {
   flex-grow: 1;
   /* This will push the settings to the bottom */
 }
@@ -153,4 +153,14 @@ mat-accordion {
   /* Prevent accordion from shrinking */
 }
 
+.sidebar-main-menu{
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.sidebar-setting{
+  display: flex;
+  flex-direction: column;
+}
 

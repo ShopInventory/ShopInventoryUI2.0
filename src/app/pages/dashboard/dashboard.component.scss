@@ -1,3 +1,15 @@
+// Define color variables for better manageability
+$products-border-color: #c8c4f9;
+$customers-border-color: #fff0e1;
+$sales-border-color: #ffe2e3;
+$revenue-border-color: #d6f4f8;
+
+$products-hover-color: #7367f0;
+$customers-hover-color: #ff9f43;
+$sales-hover-color: #ff4c51;
+$revenue-hover-color: #00bad1;
+
+
 .avatar .avatar-initial {
   position: absolute;
   top: 0;
@@ -14,52 +26,89 @@
 }
 
 .bg-label-products-container {
-  background-color: #e9e7fd !important;
-  color: #7367f0 !important;
+  color: #d8931c !important;
 }
 
 .bg-label-customers-container {
-  background-color: #fff0e1 !important;
-  color: #ff9f43 !important;
+  color: #0d920f !important;
 }
 
 .bg-label-sales-container {
-  background-color: #ffe2e3 !important;
-  color: #ff4c51 !important;
+  color: #c61313 !important;
 }
 
 .bg-label-revenue-container {
-  background-color: #d6f4f8 !important;
-  color: #00bad1 !important;
+  color: #2a6dd9 !important;
 }
 
-.products-container:hover {
-  border-bottom: 1px solid #7367f0 !important;
+.container {
+  // border: 2px solid;
+
+  &.products-container {
+    background-color: #fff3d3;
+  }
+
+  .products-facts {
+    color: #BE8900 !important;
+  }
+
+  .products-container-facts {
+    background-color: #be89003d !important;
+  }
+
+
+  &.customers-container {
+    background-color: #e7f3e4;
+
+    .customers-facts {
+      color: #0d920f !important; // Apply color correctly to the h2 element
+    }
+
+    .customers-container-facts {
+      background-color: #0d920f3d !important; // Apply color correctly to the h2 element
+    }
+  }
+
+  &.sales-container {
+    background-color: #fce4e4;
+  }
+
+  .sales-facts {
+    color: #c61313 !important;
+  }
+
+  .sales-container-facts {
+    background-color: #c613133d !important;
+  }
+
+  &.revenue-container {
+    background-color: #dfeafc;
+  }
+
+  .revenue-facts {
+    color: #2a6dd9 !important;
+  }
+
+  .revenue-container-facts {
+    background-color: #2a6dd93d !important;
+  }
 }
 
-.customers-container:hover {
-  border-bottom: 1px solid #ff9f43 !important;
-  // border-bottom: 1px solid #ff9f43 !important;
-}
 
-.sales-container:hover {
-  border-bottom: 1px solid #ff4c51 !important;
-}
 
-.revenue-container:hover {
-  border-bottom: 1px solid #00bad1 !important;
-}
 
 ::ng-deep.mat-mdc-tab:not(.mdc-tab--active) {
-  height: 80px !important;
-  min-width: 100px;
+  padding: 0 !important;
+  height: 60px !important;
+  width: 80px !important;
   border: 1px dashed lightgray !important;
   border-radius: 5px;
 }
 
 ::ng-deep.mat-mdc-tab.mdc-tab--active {
-  height: 80px !important;
-  min-width: 100px;
+  padding: 0 !important;
+  height: 60px !important;
+  width: 80px !important;
   border: 1px solid #7367f0 !important;
   border-bottom: 0px;
   border-radius: 5px;
@@ -77,3 +126,223 @@
 ::ng-deep.mat-mdc-tab .mdc-tab-indicator__content--underline {
   display: none !important;
 }
+
+::ng-deep .mat-mdc-tab {
+  .mdc-tab__text-label span,p {
+    color: lightgray; // Default color for inactive tabs
+  }
+}
+
+::ng-deep .mat-mdc-tab.mdc-tab--active {
+  .mdc-tab__text-label span,p {
+    color: #7367f0 !important; // Active tab color
+  }
+}
+
+.content-holder-card {
+  border: 1px solid #EDEDED;
+  border-radius: 4px;
+
+  .header-break {
+      border: 1px solid #e2e2e2;
+  }
+
+  .circle-indicator {
+      height: 12px;
+      width: 12px;
+      display: inline-block;
+      border-radius: 50%;
+  }
+
+  .border-bottom-container {
+      border-bottom: 1px solid #EDEDED;
+  }
+
+  .total-male-container {
+      border-right: 1px solid #EDEDED;
+  }
+}
+
+
+
+.products-container,
+.customers-container,
+.sales-container,
+.revenue-container {
+  // transition: all 0.3s ease-in-out;
+}
+
+// 1. Lift & Shadow on Hover (Uplift Effect)
+// Effect: Mat-cards will lift slightly with a shadow when hovered.
+.products-container:hover,
+.customers-container:hover,
+.sales-container:hover,
+.revenue-container:hover {
+  // transform: translateY(-5px); /* Uplift effect */
+  // box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Shadow for depth */
+}
+
+// 2. Slight Scale-Up on Hover
+// Effect: The card will slightly enlarge when hovered.
+.products-container:hover,
+.customers-container:hover,
+.sales-container:hover,
+.revenue-container:hover {
+  // transform: scale(1.05);
+  // transition: transform 0.3s ease-in-out;
+}
+
+// 3. Pulse Effect on Hover
+// Effect: The card will gently expand and shrink on hover.
+.products-container:hover,
+.customers-container:hover,
+.sales-container:hover,
+.revenue-container:hover {
+  // animation: pulse 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  // from { transform: scale(1); }
+  // to { transform: scale(1.03); }
+}
+
+// 4. Fade-In & Opacity Change on Load
+// Effect: Cards will fade in smoothly from below when the page loads.
+.products-container,
+.customers-container,
+.sales-container,
+.revenue-container {
+  // opacity: 0;
+  // transform: translateY(20px);
+  // animation: fadeInUp 0.6s ease-in-out forwards;
+}
+
+@keyframes fadeInUp {
+  // from { opacity: 0; transform: translateY(20px); }
+  // to { opacity: 1; transform: translateY(0); }
+}
+
+// 5. Border Glow on Hover
+// Effect: A glowing border appears around the card when hovered.
+.products-container {
+  // box-shadow: 0px 0px 15px rgba(115, 103, 240, 0.7);
+  // transition: box-shadow 0.3s ease-in-out;
+}
+
+.customers-container:hover {
+  // box-shadow: 0px 0px 15px rgba(255, 159, 67, 0.7);
+}
+
+.sales-container:hover {
+  // box-shadow: 0px 0px 15px rgba(255, 76, 81, 0.7);
+}
+
+.revenue-container:hover {
+  // box-shadow: 0px 0px 15px rgba(0, 186, 209, 0.7);
+}
+
+// 6. Flip Animation on Hover
+// Effect: The card will flip 180° when hovered.
+.products-container {
+  // transition: transform 0.6s;
+  // transform-style: preserve-3d;
+}
+
+.products-container:hover {
+  // transform: rotateY(180deg);
+}
+
+// 7. Shimmer Loading Effect
+// If you want to show a loading shimmer before displaying content:
+// Effect: A shimmering placeholder effect while loading data.
+.shimmer {
+  // background: linear-gradient(90deg, #e0e0e0 25%, #f8f8f8 50%, #e0e0e0 75%);
+
+  background: linear-gradient(60deg, #e9e7fd 25%, #7367f0 50%, #e9e7fd 75%);
+  background-size: 200% 100%;
+  // animation: shimmerEffect 3s infinite;
+
+  // Effect: The shimmer effect will run no. of times and then stop.
+  animation: shimmerEffect 1.8s ease-in-out 1;
+
+  // Effect: The animation will play once and stop at the last frame.
+  // animation: shimmerEffect 2s ease-in-out 1 forwards;
+
+  // Effect: The shimmer effect will run once and reset to the original state.
+  // animation: shimmerEffect 2s ease-in-out 1 none;
+
+  //Effect: The animation will play for 5 seconds, then stop.
+  // animation: shimmerEffect 2s ease-in-out alternate 5s;
+
+  // Effect: The shimmer will run 4 times, reversing direction on each cycle.
+  // animation: shimmerEffect 1.5s ease-in-out 4 alternate;
+
+}
+
+.shimmer-products-containers {
+  background: linear-gradient(60deg, #e9e7fd 25%, #7367f0 50%, #e9e7fd 75%);
+  background-size: 200% 100%;
+  // animation: shimmerEffect 3s infinite;
+  animation: shimmerEffect 2s cubic-bezier(0.2, 0, 0.2, .9) 1 forwards;
+}
+
+.shimmer-customers-containers {
+  background: linear-gradient(60deg, #fff0e1 25%, #ff9f43 50%, #fff0e1 75%);
+  background-size: 200% 100%;
+  // animation: shimmerEffect 3s infinite;
+  animation: shimmerEffect 2s cubic-bezier(0.2, 0, 0.2, .9) 1 forwards;
+}
+
+.shimmer-sales-containers {
+  background: linear-gradient(60deg, #ffe2e3 25%, #ff4c51 50%, #ffe2e3 75%);
+  background-size: 200% 100%;
+  // animation: shimmerEffect 3s infinite;
+  animation: shimmerEffect 2s cubic-bezier(0.2, 0, 0.2, .9) 1 forwards;
+}
+
+.shimmer-revenue-containers {
+  background: linear-gradient(60deg, #d6f4f8 25%, #00bad1 50%, #d6f4f8 75%);
+  background-size: 200% 100%;
+  // animation: shimmerEffect 3s infinite;
+  animation: shimmerEffect 2s cubic-bezier(0.2, 0, 0.2, .9) 1 forwards;
+}
+
+@keyframes shimmerEffect {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+
+button[mat-icon-button] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+button[mat-icon-button] {
+  position: relative;
+}
+
+.banks-list-details-container {
+  max-height: 40vh;
+}
+
+.mat-mdc-tab-group {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+::ng-deep .mat-mdc-tab-labels {
+  flex-direction: column;
+}
+
+::ng-deep .mat-mdc-tab-body-wrapper {
+  width: 100%;
+}
+

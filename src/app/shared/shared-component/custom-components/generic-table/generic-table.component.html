@@ -17,7 +17,7 @@
     } @else if (column.field == 'action') {
     <td mat-cell *matCellDef="let row; let i = index">
       <div class="d-flex justify-content-center align-items-center gap-2">
-        <img src="./assets/icons/dwnld_icons/icon_edit.svg" alt="edit-icon" class="action-icon" (click)="onEdit(i)">
+        <img src="./assets/icons/dwnld_icons/icon_edit.svg" alt="edit-icon" class="action-icon" (click)="onEdit(row)">
         <img src="./assets/icons/dwnld_icons/icon_delete.svg" alt="delete-icon" class="action-icon"
           (click)="onDelete(i)">
       </div>
@@ -28,7 +28,7 @@
       </td>
       } @else {
     <td mat-cell *matCellDef="let row">
-      <p class="m-0">{{ column.type == 'date' ? (row[column.field] | date) : row[column.field] }}</p>
+      <p class="m-0">{{ column.type == 'date' ? (row[column.field] | date:'dd/MM/yyyy') : row[column.field] }}</p>
     </td>
     }
   </ng-container>
@@ -55,3 +55,4 @@
     <td class="mat-cell" colspan="100%">No data matching the filter</td>
   </tr>
 </table>
+

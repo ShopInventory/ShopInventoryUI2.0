@@ -28,7 +28,7 @@ export class BrandsComponent {
   @ViewChild(MatSort) sort!: MatSort;
 
   brandsDataSource = new MatTableDataSource<any>();
-  brandsDisplayedColumns: string[] = ['srNo', 'brandName', 'brandCode', 'brandAddDate', 'status', 'action'];
+  brandsDisplayedColumns: string[] = ['srNo', 'brandName', 'brandCode', 'createdAt', 'status', 'action'];
 
   panelOpenState = false;
   brandsData: any = [];
@@ -37,10 +37,10 @@ export class BrandsComponent {
 
   productColumnDefs = [
     { header: 'Sr. No.', field: 'srNo' },
-    { header: 'Brand', field: 'brandName' },
+    { header: 'Brand Name', field: 'brandName' },
     { header: 'Brand Code', field: 'brandCode' },
     { header: 'Status', field: 'status' },
-    { header: 'Created', field: 'brandAddDate', type: 'date' },  // Customize for date fields
+    { header: 'Created', field: 'createdAt', type: 'date' },  // Customize for date fields
     { header: 'Action', field: 'action' },
   ];
 
@@ -54,7 +54,7 @@ export class BrandsComponent {
   ) { }
 
   ngOnInit(): void {
-    // this.setValues();
+    this.setValues();
   }
 
   ngAfterViewInit(): void {
@@ -140,15 +140,17 @@ export class BrandsComponent {
     });
   }
 
-  editBrand(index: number, id: any) {
-    const selectedBrand = this.brandsData[index];
+  editBrand(data: any, id: any) {
+    const selectedBrand = data;
+    console.log('data', data);
+
     const dialogRef = this.dialog.open(CreateBrandDialogComponent, {
       panelClass: 'medium-dialog',
       autoFocus: false,
       data: {
         id: id,
         brand: selectedBrand,
-        index: index
+        // index: data.index
       },
     });
 
@@ -237,9 +239,9 @@ export class BrandsComponent {
   }
 
 
-  onEditProduct(index: any) {
-    console.log('Edit product', index);
-    this.editBrand(index, 'edit-brand');
+  onEditProduct(row: any) {
+    console.log('Edit product', row);
+    this.editBrand(row, 'edit-brand');
   }
 
   onDeleteProduct(index: any) {

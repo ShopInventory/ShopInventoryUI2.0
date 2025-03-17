@@ -38,8 +38,8 @@ export class CreateBrandDialogComponent {
 
   images: any[] = []; // Array to hold image URLs
   brandStatusOptions = [
-    { value: '0', status: 'In-Active' },
-    { value: '1', status: 'Active' }
+    { value: false, status: 'In-Active' },
+    { value: true, status: 'Active' }
   ];
 
   constructor(
@@ -47,7 +47,7 @@ export class CreateBrandDialogComponent {
   ) {
     this.dialogRef.disableClose = true;
     this.id = this.data.id;
-    this.index = this.data.index;
+    // this.index = this.data.index;
     this.selectedBrand = this.data.brand;
   }
 
@@ -59,17 +59,17 @@ export class CreateBrandDialogComponent {
   initializeForm() {
     this.addBrandForm = this.formBuilder.group({
       brandName: ['', Validators.required],
-      brandCode: ['', Validators.required],
-      brandAddDate: ['', Validators.required],
+      brandCode: [{ value: '', disabled: true }, Validators.required],
+      createdAt: ['', Validators.required],
       status: ['', Validators.required],
-      brandDescription: ['', Validators.required],
+      description: ['', Validators.required],
     });
   }
 
   setValues() {
     if (this.id == 'edit-brand') {
       this.editBrand(this.selectedBrand);
-      console.log('index', this.index);
+      // console.log('index', this.index);
       console.log('selectedBrand', this.selectedBrand);
     }
   }
@@ -143,12 +143,27 @@ export class CreateBrandDialogComponent {
 
     // Include image data in the form value
     if (this.images.length > 0) {
-      formValue.profileImage = this.images;
+      // formValue.profileImage = this.images;
     }
+
+    delete formValue.brandCode
 
     this.cd.openConfirmModal('Are you sure you want to appove the request?', () => {
       this.loader.startLoader();
-      this.inventoryService.addBrand(formValue);
+      // this.inventoryService.addBrand(formValue);
+      this.inventoryService.saveBrandDetails(formValue);
+      this.inventoryService.saveBrandDetails(formValue).subscribe({
+        next: (res: any) => {
+          this.loader.stopLoader();
+          const message = res.status ? `${res.message}` : res.error;
+
+          res.status ? this.cd.openSuccessModal(message) : this.cd.openErrorModal(message, 'Error');
+        },
+        error: (err) => {
+          this.loader.stopLoader();
+          this.cd.openErrorModal(err.error.description, err.error.code);
+        }
+      });
     });
 
     this.dialogRef.close({

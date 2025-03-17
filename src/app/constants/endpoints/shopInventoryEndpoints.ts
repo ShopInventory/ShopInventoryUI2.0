@@ -3,6 +3,7 @@ import { shopInventoryUrls } from "./endpoints";
 
 export const shopInventoryEndpoints = {
       // save Data endpoints
+    saveBrandDetails: `${shopInventoryUrls.shopInventory}saveBrandDetails`,
     saveCategoryDetails: `${shopInventoryUrls.shopInventory}saveCategoryDetails`,
 
     // get Data endpoints

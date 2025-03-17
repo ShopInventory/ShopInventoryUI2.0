@@ -8,6 +8,9 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MaterialModule } from 'src/app/shared/shared-module/material/material.module';
 import { CreateProductDialogComponent } from '../_inventory-common-dialog/create-product-dialog/create-product-dialog.component';
 import { first } from 'rxjs';
+import { jsPDF } from 'jspdf';
+import autoTable from 'jspdf-autotable';
+import * as XLSX from 'xlsx';
 import { InventoryService } from '../_inventory-services/inventory.service';
 import { LoaderService } from '@services/loader/loader.service';
 import { CommonDialogService } from '@services/common-dialog-services/common-dialog-service.service';
@@ -144,4 +147,108 @@ export class ProductsComponent implements OnInit {
 
   }
 
+  generatePDF(isDownload: boolean) {
+    const doc = new jsPDF();
+
+    // Define table headers
+    const headers = [
+      'Sr. No.',
+      'Product',
+      'Product Type',
+      'Category',
+      'Sub Category',
+      'Brand',
+      'Unit',
+      'Quantity',
+      'Created',
+      'Status'
+    ];
+
+    // Fetch table data from MatTableDataSource
+    const rows = this.productDataSource.data.map((row: any, index: number) => [
+      index + 1, // Sr. No.
+      row.productName,
+      row.productTypeName,
+      row.productCategoryName,
+      row.productSubCategoryName,
+      row.productBrandName,
+      row.productUnitName,
+      row.productQty,
+      new Date(row.productCreateDate).toLocaleDateString(), // Format date
+      row.brandStatus === '1' ? 'Active' : 'Inactive'
+    ]);
+
+    // Add Title
+    doc.setFontSize(16);
+    doc.text('Product List', 14, 15);
+
+    // Generate table
+    autoTable(doc, {
+      startY: 20,
+      head: [headers],
+      body: rows,
+      theme: 'grid',
+      styles: { fontSize: 10 },
+      headStyles: { fillColor: [41, 128, 185], textColor: 255, fontStyle: 'bold' },
+      alternateRowStyles: { fillColor: [240, 240, 240] },
+      margin: { top: 20 }
+    });
+
+    if (isDownload) {
+      // Save the PDF file for download
+      doc.save('Products.pdf');
+    } else {
+      // Print the PDF
+      const pdfOutput = doc.output('blob'); // Get PDF as Blob
+      const url = URL.createObjectURL(pdfOutput);
+      const printWindow = window.open(url);
+      if (printWindow) {
+        printWindow.onload = () => printWindow.print(); // Print automatically
+      }
+    }
+  }
+
+  pdfDownload() {
+    this.generatePDF(true); // Download the PDF
+  }
+
+  print() {
+    this.generatePDF(false); // Print the PDF
+  }
+
+
+  excelDownload() {
+    // Define headers
+    const headers = [
+      ['Sr. No.', 'Product', 'Product Type', 'Category', 'Sub Category',
+       'Brand', 'Unit', 'Quantity', 'Created', 'Status']
+    ];
+
+    // Fetch table data
+    const rows = this.productDataSource.data.map((row: any, index: number) => [
+      index + 1, // Sr. No.
+      row.productName,
+      row.productTypeName,
+      row.productCategoryName,
+      row.productSubCategoryName,
+      row.productBrandName,
+      row.productUnitName,
+      row.productQty,
+      new Date(row.productCreateDate).toLocaleDateString(), // Format date
+      row.brandStatus === '1' ? 'Active' : 'Inactive'
+    ]);
+
+    // Combine headers and rows
+    const worksheetData = [...headers, ...rows];
+
+    // Create worksheet & workbook
+    const ws = XLSX.utils.aoa_to_sheet(worksheetData);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Products');
+
+    // Write and save Excel file
+    const excelBuffer = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+    const data = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+    XLSX.writeFile(wb, 'Products.xlsx');
+  }
 }

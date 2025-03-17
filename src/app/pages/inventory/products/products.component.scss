@@ -5,3 +5,34 @@
 }
 
 
+.menu-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    font-size: 14px;
+  }
+}
+
+.hover-rotate {
+  position: relative;
+}
+
+.hover-rotate .icon {
+  display: inline-block;
+  transition: transform 1s ease-in-out; /* Smooth rotation animation */
+}
+
+.hover-rotate .text {
+  display: none;
+}
+
+.hover-rotate:hover .icon {
+  transform: rotate(180deg); /* Rotate 360 degrees */
+}
+
+.hover-rotate:hover .text {
+  display: inline-block;
+  /* Add optional styling for the text */
+}

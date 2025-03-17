@@ -65,9 +65,14 @@ button[mat-icon-button] img {
 
 
 mat-sidenav-container {
-  height: calc(100vh - 64px);
+  height: calc(100vh - 15vh);
   background-color: #edf0f2;
 }
+
+mat-sidenav {
+  height: calc(100vh - 18vh);
+}
+
 
 .content {
   // background-color: #f8f7fa;
@@ -152,4 +157,74 @@ button[mat-icon-button] {
       margin-left: auto;
     }
   }
+}
+
+.footer {
+  background-color: #ffffff;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  z-index: 5;
+
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer nav ul li {
+  display: inline;
+  margin: 0 10px;
+}
+
+.footer nav ul li a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.footer nav ul li a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer nav ul {
+    margin-top: 10px;
+  }
+
+  .footer nav ul li {
+    display: block;
+    margin: 5px 0;
+  }
+}
+
+.scroll-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 100px;
+  z-index: 1000;
+  background-color: #007bff;
+  color: white;
+  transition: opacity 0.3s;
+}
+
+.scroll-btn:hover {
+  background-color: #0056b3;
+}
+
+.scroll-btn:focus {
+  outline: none;
 }

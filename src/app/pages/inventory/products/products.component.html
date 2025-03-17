@@ -1,5 +1,5 @@
 <!-- <p>products works!</p> -->
-<mat-card class="cardWithShadow">
+<mat-card class="cardWithShadow p-3">
   <div class="section-card rounded p-3">
     <div class="d-flex align-items-center justify-content-between">
       <div class="p-2">
@@ -18,30 +18,37 @@
       <div class="col-12 col-md-6 col-lg-6 col-xl-6 mb-2">
         <mat-form-field appearance="outline" class="w-100">
           <mat-label>Search</mat-label>
-          <input
-            matInput
-            placeholder="Search Parent Category, Sub Category, Sub Category Code etc"
-            (keyup)="filterApply($event)"
-            #input
-          />
+          <input matInput placeholder="Search Parent Category, Sub Category, Sub Category Code etc"
+            (keyup)="filterApply($event)" #input />
           <mat-icon matSuffix class="search-icon-color">search</mat-icon>
         </mat-form-field>
       </div>
 
       <!-- Buttons -->
       <div class="d-flex flex-wrap justify-content-md-end">
-        <button mat-raised-button class="mx-1 my-1">
-          <i class="bi bi-filetype-pdf f-20 text-danger"></i>
+        <button mat-raised-button color="primary" class="hover-rotate  mx-1 my-1" (click)="addProduct('add-product')">
+          <i class="bi bi-plus f-20 icon"></i>
+          <span class="text">Add Product</span>
         </button>
-        <button mat-raised-button class="mx-1 my-1">
-          <i class="bi bi-filetype-xls f-20 text-success"></i>
+        <!-- Theme icon with Menu -->
+        <button mat-raised-button color="primary" class="mx-1 my-1" [matMenuTriggerFor]="languageMenu">
+          <i class="bi bi-three-dots-vertical"></i>
         </button>
-        <button mat-raised-button class="mx-1 my-1">
-          <i class="bi bi-printer f-20 text-primary"></i>
-        </button>
-        <button mat-raised-button color="primary" class="mx-1 my-1" (click)="addProduct('add-product')">
-          Add Product
-        </button>
+        <!-- Theme Mat Menu -->
+        <mat-menu #languageMenu="matMenu" xPosition="before" class="p-2">
+          <button mat-menu-item class="menu-items" (click)="pdfDownload()">
+            <i class="bi bi-filetype-pdf f-20 text-danger me-2"></i>
+            <span> Export PDF</span>
+          </button>
+          <button mat-menu-item class="menu-items" (click)="excelDownload()">
+            <i class="bi bi-filetype-xls f-20 text-success me-2"></i>
+            <span> Export XLS</span>
+          </button>
+          <button mat-menu-item class="menu-items" (click)="print()">
+            <i class="bi bi-printer f-20 text-primary me-2"></i>
+            <span> Print</span>
+          </button>
+        </mat-menu>
       </div>
     </div>
 
@@ -49,11 +56,10 @@
       <!-- ------------------------------------------------------------------------- -->
       <!-- Product Table Container -->
       <!-- ------------------------------------------------------------------------- -->
-      <div class="">
+      <div class="product-table">
         <!-- <pre>New Product Categories Data: {{productCategoriesData | json}}</pre> -->
 
-        <table mat-table [dataSource]="productDataSource" class="" matSort matSortDirection="desc"
-          mat-table-auto-rows>
+        <table mat-table [dataSource]="productDataSource" class="" matSort matSortDirection="desc" mat-table-auto-rows>
           <!-- Number Column -->
           <ng-container matColumnDef="srNo">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Sr. No.</th>
@@ -133,9 +139,9 @@
             <td mat-cell *matCellDef="let row;let i = index">
               <!-- [hidden]="row.allowanceId === 100 || row.allowanceName === 'Gross Earning'" -->
               <img src="./assets/icons/dwnld_icons/icon_edit.svg" alt="edit-icon" class="action-icon"
-              (click)="editProduct(i,'edit-product')">
-            <img src="./assets/icons/dwnld_icons/icon_delete.svg" alt="delete-icon" class="action-icon ms-2"
-              (click)="deleteProduct(i)">
+                (click)="editProduct(i,'edit-product')">
+              <img src="./assets/icons/dwnld_icons/icon_delete.svg" alt="delete-icon" class="action-icon ms-2"
+                (click)="deleteProduct(i)">
             </td>
           </ng-container>
 

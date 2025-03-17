@@ -57,8 +57,17 @@
                 <input matInput formControlName="brandName">
               </mat-form-field>
             </div>
-
+            
+            @if(this.selectedBrand){
             <div class="col-lg-6 col-xl-6">
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <mat-label>Brand Code</mat-label>
+                <input matInput formControlName="brandCode">
+              </mat-form-field>
+            </div>
+            }
+
+            <!-- <div class="col-lg-6 col-xl-6">
               <div class="category-code-mat-form-field">
                 <mat-form-field appearance="outline" class="w-100 rounded-end-0 relative-field" color="primary">
                   <mat-label>Brand Code</mat-label>
@@ -68,13 +77,12 @@
                     (click)="generateBrandCode()">Create Code</button>
                 </mat-form-field>
               </div>
-            </div>
+            </div> -->
 
             <div class="col-lg-6 col-xl-6">
               <mat-form-field appearance="outline" class="w-100" color="primary">
                 <mat-label>Date</mat-label>
-                <input matInput [matDatepicker]="picker" (focus)="picker.open()" readonly
-                  formControlName="brandAddDate">
+                <input matInput [matDatepicker]="picker" (focus)="picker.open()" readonly formControlName="createdAt">
               </mat-form-field>
               <mat-datepicker #picker></mat-datepicker>
             </div>
@@ -91,7 +99,7 @@
             </div>
             <mat-form-field appearance="outline" class="w-100" color="primary">
               <mat-label>Description</mat-label>
-              <textarea matInput formControlName="brandDescription"></textarea>
+              <textarea matInput formControlName="description"></textarea>
             </mat-form-field>
           </div>
         </mat-expansion-panel>

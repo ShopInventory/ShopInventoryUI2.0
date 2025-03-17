@@ -1,132 +1,1119 @@
 <!-- <p>dashboard works!</p> -->
-<div class="container-fluid">
-  <div class="row gy-3 justify-content-start">
-    <div class="col-xl-3 col-lg-6 col-md-6 col-12">
-      <mat-card class="rounded products-container p-2">
-        <div class="d-flex align-items-center justify-content-between p-3 pb-2">
-          <h2 class="m-0 fw-semibold opacity-75">Products</h2>
-          <!-- <span class="text-primary f-18"><i class="bi bi-box"></i></span> -->
-          <span class="avatar-initial rounded bg-label-products-container f-18 px-3 py-2"><i
+<mat-card class="p-4 mb-5">
+<div class="container-fluid mb-5">
+  <div class="row gy-4 mb-4">
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+      <mat-card class="container products-container cardWithShadow p-4">
+        <div class="d-flex align-items-center justify-content-between mb-2">
+          <p class="m-0 medium-font opacity-75">Products</p>
+          <span class="avatar-initial rounded bg-label-products-container px-2 py-0"><i
               class="fs-3 bi bi-box"></i></span>
         </div>
-        <div class="d-flex flex-column align-items-start p-3 pt-1">
-          <h2 class="m-0 p-0 fw-bolder">40,560</h2>
-          <!-- <p class="m-0 mt-2 f-12 opacity-75 fw-semibold"><span class="text-primary">+ 20.10%</span> from last month</p> -->
+        <div class="d-flex align-items-center justify-content-start">
+          <h2 class="m-0 me-2 p-0 bold-font products-facts">40,560</h2>
+          <div class="px-2 py-1 products-container-facts rounded-2">
+            <p class="m-0 f-12 medium-font bodytext-color">+ 2.5%</p>
+          </div>
         </div>
       </mat-card>
     </div>
-    <div class="col-xl-3 col-lg-6 col-md-6 col-12">
-      <mat-card class="rounded customers-container p-2">
-        <div class="d-flex align-items-center justify-content-between p-3 pb-2">
-          <h2 class="m-0 fw-semibold opacity-75">Customers</h2>
-          <!-- <span class="text-primary f-18"><i class="bi bi-inboxes"></i></span> -->
-          <span class="avatar-initial rounded bg-label-customers-container f-18 px-3 py-2"><i
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+      <mat-card class="container customers-container cardWithShadow p-4">
+        <div class="d-flex align-items-center justify-content-between mb-2">
+          <p class="m-0 medium-font opacity-75">Customers</p>
+          <span class="avatar-initial rounded bg-label-customers-container px-2 py-0"><i
               class="fs-3 bi bi-inboxes"></i></span>
         </div>
-        <div class="d-flex flex-column align-items-start p-3 pt-1">
-          <h3 class="m-0 p-0 fw-bolder">40,560</h3>
-          <!-- <p class="m-0 mt-2 f-12 opacity-75 fw-semibold"><span class="text-primary">+ 20.10%</span> from last month</p> -->
+        <div class="d-flex align-items-center justify-content-start">
+          <h2 class="m-0 me-2 p-0 bold-font customers-facts">40,560</h2>
+          <div class="px-2 py-1 customers-container-facts rounded-2">
+            <p class="m-0 f-12 medium-font bodytext-color">+ 2.5%</p>
+          </div>
         </div>
       </mat-card>
     </div>
-    <div class="col-xl-3 col-lg-6 col-md-6 col-12">
-      <mat-card class="rounded sales-container p-2">
-        <div class="d-flex align-items-center justify-content-between p-3 pb-2">
-          <h2 class="m-0 fw-semibold opacity-75">Sales</h2>
-          <!-- <span class="text-primary f-18"><i class="bi bi-wallet"></i></span> -->
-          <span class="avatar-initial rounded bg-label-sales-container f-18 px-3 py-2"><i
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+      <mat-card class="container sales-container cardWithShadow p-4">
+        <div class="d-flex align-items-center justify-content-between mb-2">
+          <p class="m-0 medium-font opacity-75">Sales</p>
+          <span class="avatar-initial rounded bg-label-sales-container px-2 py-0"><i
               class="fs-3 bi bi-wallet"></i></span>
         </div>
-        <div class="d-flex flex-column align-items-start p-3 pt-1">
-          <h3 class="m-0 p-0 fw-bolder">₹ 40,560</h3>
-          <!-- <p class="m-0 mt-2 f-12 opacity-75 fw-semibold"><span class="text-primary">+ 20.10%</span> from last month</p> -->
+        <div class="d-flex align-items-center justify-content-start">
+          <h2 class="m-0 me-2 p-0 bold-font sales-facts">₹ 40,560</h2>
+          <div class="px-2 py-1 sales-container-facts rounded-2">
+            <p class="m-0 f-12 medium-font bodytext-color">+ 2.5%</p>
+          </div>
         </div>
       </mat-card>
     </div>
-    <div class="col-xl-3 col-lg-6 col-md-6 col-12">
-      <mat-card class="rounded revenue-container p-2">
-        <div class="d-flex align-items-center justify-content-between p-3 pb-2">
-          <h2 class="m-0 fw-semibold opacity-75">Revenue</h2>
-          <!-- <span class="text-primary f-18"><i class="bi bi-currency-rupee"></i></span> -->
-          <span class="avatar-initial rounded bg-label-revenue-container f-18 px-3 py-2"><i
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+      <mat-card class="container revenue-container cardWithShadow p-4">
+        <div class="d-flex align-items-center justify-content-between mb-2">
+          <p class="m-0 medium-font opacity-75">Revenue</p>
+          <span class="avatar-initial rounded bg-label-revenue-container px-2 py-0"><i
               class="fs-3 bi bi-currency-rupee"></i></span>
         </div>
-        <div class="d-flex flex-column align-items-start p-3 pt-1">
-          <h3 class="m-0 p-0 fw-bolder">₹ 40,560</h3>
-          <!-- <p class="m-0 mt-2 f-12 opacity-75 fw-semibold"><span class="text-primary">+ 20.10%</span> from last month</p> -->
+        <div class="d-flex align-items-center justify-content-start">
+          <h2 class="m-0 me-2 p-0 bold-font revenue-facts">₹ 40,560</h2>
+          <div class="px-2 py-1 revenue-container-facts rounded-2">
+            <p class="m-0 f-12 medium-font bodytext-color">+ 2.5%</p>
+          </div>
         </div>
       </mat-card>
     </div>
   </div>
 
-  <div class="row gy-3 justify-content-start mt-1">
-    <div class="col-xl-6 col-lg-6 col-md-6 col-12">
-      <mat-card class="rounded products-container p-2">
-        <div class="d-flex align-items-center justify-content-between p-3 pb-2">
-          <h2 class="m-0 fw-semibold opacity-75">Earning Reports</h2>
-          <span class="text-primary f-18"><i class="bi bi-three-dots-vertical"></i></span>
+  <div class="row gy-4">
+    <div class="col-lg-6">
+      <div class="content-holder-card cardWithShadow p-3 h-100">
+        <div class="card-header">
+          <div class="d-flex align-items-center justify-content-between">
+            <h2 class="f-14 m-0 bodytext-color">Earning Reports</h2>
+            <span class="text-primary f-18"><i class="bi bi-three-dots-vertical"></i></span>
+          </div>
+          <p class="m-0 f-12 opacity-75 fw-semibold">Yearly Earnings Overview</p>
         </div>
-        <div class=" p-3">
-          <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
-            <mat-tab>
-              <ng-template mat-tab-label class="d-block">
-                <span
-                  class="d-flex align-items-center justify-content-center avatar-initial rounded bg-label-products-container  f-18 px-2 py-3">
-                  <i class="fs-3 bi bi-box"></i>
-                </span>
-                <p class="m-0 pt-3">Order</p>
-              </ng-template>
-              Tab content here
-            </mat-tab>
-            <mat-tab>
-              <ng-template mat-tab-label class="d-block">
-                <span
-                  class="d-flex align-items-center justify-content-center avatar-initial rounded bg-label-products-container  f-18 px-2 py-3">
-                  <i class="fs-3 bi bi-wallet"></i>
-                </span>
-                <p class="m-0 pt-3">Sales</p>
-              </ng-template>
-              Tab content here
-            </mat-tab>
-            <mat-tab>
-              <ng-template mat-tab-label class="d-block">
-                <span
-                  class="d-flex align-items-center justify-content-center avatar-initial rounded bg-label-products-container  f-18 px-2 py-3">
-                  <i class="fs-3 bi bi-currency-rupee"></i>
-                </span>
-                <p class="m-0 pt-3">Profit</p>
-              </ng-template>
-              Tab content here
-            </mat-tab>
-            <mat-tab>
-              <ng-template mat-tab-label class="d-block">
-                <span
-                  class="d-flex align-items-center justify-content-center avatar-initial rounded bg-label-products-container  f-18 px-1 py-3">
-                  <i class=" bi bi-inboxes"></i>
-                </span>
-                <p class="m-0 pt-3">Income</p>
-              </ng-template>
-              Tab content here
-            </mat-tab>
-          </mat-tab-group>
+        <hr class="header-break">
+        <div class="card-body">
+          <div class="tab-container">
+            <div class="card-body">
+              <div class="tab-container">
+                <mat-tab-group>
+                  <mat-tab>
+                    <ng-template mat-tab-label>
+                      <span class="avatar-initial rounded p-2">
+                        <i class="fs-3 bi bi-box"></i>
+                      </span>
+                      <p class="m-0 pt-3">Order</p>
+                    </ng-template>
+                    <div class="doughnut-chart-details mt-4 ms-5">
+                      <app-generic-chart chartId="barChart" [chartData]="barChartData"
+                        [chartOptions]="barChartOptions"></app-generic-chart>
+                      <div class="d-flex justify-content-between align-items-start">
+                        <div class="d-flex align-items-baseline gap-2 w-50">
+                          <span class="circle-indicator"
+                            [style.backgroundColor]="barChartData?.datasets[0].backgroundColor[0]"></span>
+                          <div class="d-inline-block">
+                            <p class="m-0 mb-1">Jaipur</p>
+                            <p class="bold-font f-14 m-0">12k</p>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-baseline gap-2 w-50">
+                          <span class="circle-indicator"
+                            [style.backgroundColor]="barChartData?.datasets[0].backgroundColor[1]"></span>
+                          <div class="d-inline-block">
+                            <p class="m-0 mb-1">Ajmer</p>
+                            <p class="bold-font f-14 m-0">10k</p>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-baseline gap-2 w-50">
+                          <span class="circle-indicator"
+                            [style.backgroundColor]="barChartData?.datasets[0].backgroundColor[2]"></span>
+                          <div class="d-inline-block">
+                            <p class="m-0 mb-1">Jodhpur</p>
+                            <p class="bold-font f-14 m-0">3k</p>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-baseline gap-2 w-50">
+                          <span class="circle-indicator"
+                            [style.backgroundColor]="barChartData?.datasets[0].backgroundColor[3]"></span>
+                          <div class="d-inline-block">
+                            <p class="m-0 mb-1">Udaipur</p>
+                            <p class="bold-font f-14 m-0">3k</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </mat-tab>
+                  <mat-tab>
+                    <ng-template mat-tab-label>
+                      <span class="avatar-initial rounded p-2">
+                        <i class="fs-3 bi bi-wallet"></i>
+                      </span>
+                      <p class="m-0 pt-3">Sales</p>
+                    </ng-template>
+                    <div class="doughnut-chart-details mt-4 ms-5">
+                      <app-generic-chart chartId="lineChart" [chartType]="'line'" [chartData]="lineChartData"
+                      [chartOptions]="lineChartOptions"></app-generic-chart>
+                      <div class="d-flex justify-content-between align-items-start">
+                        <div class="d-flex align-items-baseline gap-2 w-50">
+                          <span class="circle-indicator"
+                            [style.backgroundColor]="lineChartData?.datasets[0].backgroundColor[0]"></span>
+                          <div class="d-inline-block">
+                            <p class="m-0 mb-1">Jaipur</p>
+                            <p class="bold-font f-14 m-0">12k</p>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-baseline gap-2 w-50">
+                          <span class="circle-indicator"
+                            [style.backgroundColor]="lineChartData?.datasets[0].backgroundColor[1]"></span>
+                          <div class="d-inline-block">
+                            <p class="m-0 mb-1">Ajmer</p>
+                            <p class="bold-font f-14 m-0">10k</p>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-baseline gap-2 w-50">
+                          <span class="circle-indicator"
+                            [style.backgroundColor]="lineChartData?.datasets[0].backgroundColor[2]"></span>
+                          <div class="d-inline-block">
+                            <p class="m-0 mb-1">Jodhpur</p>
+                            <p class="bold-font f-14 m-0">3k</p>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-baseline gap-2 w-50">
+                          <span class="circle-indicator"
+                            [style.backgroundColor]="lineChartData?.datasets[0].backgroundColor[3]"></span>
+                          <div class="d-inline-block">
+                            <p class="m-0 mb-1">Udaipur</p>
+                            <p class="bold-font f-14 m-0">3k</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </mat-tab>
+                  <mat-tab>
+                    <ng-template mat-tab-label>
+                      <span class="avatar-initial rounded p-2">
+                        <i class="fs-3 bi bi-currency-rupee"></i>
+                      </span>
+                      <p class="m-0 pt-3">Profit</p>
+                    </ng-template>
+                    <div class="doughnut-chart-details mt-4 ms-5">
+                      <app-generic-chart chartId="pieChart" [chartType]="'pie'" [chartData]="pieChartData"
+                          [chartOptions]="pieChartOptions"></app-generic-chart>
+                      <div class="d-flex justify-content-between align-items-start">
+                        <div class="d-flex align-items-baseline gap-2 w-50">
+                          <span class="circle-indicator"
+                            [style.backgroundColor]="pieChartData?.datasets[0].backgroundColor[0]"></span>
+                          <div class="d-inline-block">
+                            <p class="m-0 mb-1">Jaipur</p>
+                            <p class="bold-font f-14 m-0">12k</p>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-baseline gap-2 w-50">
+                          <span class="circle-indicator"
+                            [style.backgroundColor]="pieChartData?.datasets[0].backgroundColor[1]"></span>
+                          <div class="d-inline-block">
+                            <p class="m-0 mb-1">Ajmer</p>
+                            <p class="bold-font f-14 m-0">10k</p>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-baseline gap-2 w-50">
+                          <span class="circle-indicator"
+                            [style.backgroundColor]="pieChartData?.datasets[0].backgroundColor[2]"></span>
+                          <div class="d-inline-block">
+                            <p class="m-0 mb-1">Jodhpur</p>
+                            <p class="bold-font f-14 m-0">3k</p>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-baseline gap-2 w-50">
+                          <span class="circle-indicator"
+                            [style.backgroundColor]="pieChartData?.datasets[0].backgroundColor[3]"></span>
+                          <div class="d-inline-block">
+                            <p class="m-0 mb-1">Udaipur</p>
+                            <p class="bold-font f-14 m-0">3k</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </mat-tab>
+                  <mat-tab>
+                    <ng-template mat-tab-label>
+                      <span class="avatar-initial rounded p-2">
+                        <i class="fs-3 bi bi-inboxes"></i>
+                      </span>
+                      <p class="m-0 pt-3">Income</p>
+                    </ng-template>
+                    <div class="doughnut-chart-details ms-5 h-100">
+                      <app-generic-chart chartId="doughnutChart" [chartType]="'doughnut'" [chartData]="doughnutChartData"
+                      [chartOptions]="doughnutChartOptions"></app-generic-chart>
+                      <div class="d-flex justify-content-evenly align-items-start mt-4 ">
+                        <div class="d-flex align-items-baseline gap-2 w-50">
+                          <span class="circle-indicator"
+                            [style.backgroundColor]="doughnutChartData?.datasets[0]?.backgroundColor[0]"></span>
+                          <div class="d-inline-block">
+                            <p class="m-0 mb-1">Jaipur</p>
+                            <p class="bold-font f-14 m-0">12k</p>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-baseline gap-2 w-50">
+                          <span class="circle-indicator"
+                            [style.backgroundColor]="doughnutChartData?.datasets[0]?.backgroundColor[1]"></span>
+                          <div class="d-inline-block">
+                            <p class="m-0 mb-1">Ajmer</p>
+                            <p class="bold-font f-14 m-0">10k</p>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-baseline gap-2 w-50">
+                          <span class="circle-indicator"
+                            [style.backgroundColor]="doughnutChartData?.datasets[0]?.backgroundColor[2]"></span>
+                          <div class="d-inline-block">
+                            <p class="m-0 mb-1">Jodhpur</p>
+                            <p class="bold-font f-14 m-0">3k</p>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </mat-tab>
+                </mat-tab-group>
+              </div>
+            </div>
+
+          </div>
         </div>
-      </mat-card>
+
+      </div>
     </div>
-    <div class="col-xl-6 col-lg-6 col-md-6 col-12">
-      <mat-card class="rounded stocks-container p-2">
-        <div class="d-flex align-items-center justify-content-between p-3 pb-2">
-          <h2 class="m-0 fw-semibold opacity-75">Total Stocks</h2>
-          <span class="text-primary f-18"><i class="bi bi-inboxes"></i></span>
+    <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+      <div class="content-holder-card cardWithShadow p-3 h-100">
+        <div class="card-header">
+          <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+            <!-- Title -->
+            <h2 class="f-14 m-0 bodytext-color flex-grow-1 text-truncate">Total Earnings</h2>
+
+            <!-- Dropdown Container -->
+            <ng-container>
+              <span [matMenuTriggerFor]="earnings"
+                class="border text-primary f-16 px-3 rounded w-auto d-inline-flex align-items-center">
+                {{ selectedEarningMonth }}
+                <i class="ms-2 bi bi-chevron-down"></i>
+              </span>
+              <mat-menu #earnings="matMenu">
+                <span mat-menu-item (click)="selectEarningsMonth('January')">January</span>
+                <span mat-menu-item (click)="selectEarningsMonth('February')">February</span>
+                <span mat-menu-item (click)="selectEarningsMonth('March')">March</span>
+                <span mat-menu-item (click)="selectEarningsMonth('April')">April</span>
+              </mat-menu>
+            </ng-container>
+          </div>
+
         </div>
-        <div class="d-flex flex-column align-items-start p-3 pt-1">
-          <h3 class="m-0 p-0 fw-bolder">40,560</h3>
-          <!-- <p class="m-0 mt-2 f-12 opacity-75 fw-semibold"><span class="text-primary">+ 20.10%</span> from last month</p> -->
+        <hr class="header-break mt-5">
+        <div class="card-body">
+          <div class="body-content-container">
+            <div class="d-flex flex-column">
+              <ng-container>
+                <app-generic-chart chartId="pieChart" [chartType]="'pie'" [chartData]="pieChartData"
+                  [chartOptions]="pieChartOptions"></app-generic-chart>
+              </ng-container>
+              <ng-container>
+                <div class="doughnut-chart-details mt-4">
+                  <div class="d-flex justify-content-between align-items-start">
+                    <div class="d-flex align-items-baseline gap-2 w-50">
+                      <span class="circle-indicator"
+                        [style.backgroundColor]="pieChartData?.datasets[0].backgroundColor[0]"></span>
+                      <div class="d-inline-block">
+                        <p class="m-0 mb-1">Jaipur</p>
+                        <p class="bold-font f-14 m-0">12k</p>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-baseline gap-2 w-50">
+                      <span class="circle-indicator"
+                        [style.backgroundColor]="pieChartData?.datasets[0].backgroundColor[1]"></span>
+                      <div class="d-inline-block">
+                        <p class="m-0 mb-1">Ajmer</p>
+                        <p class="bold-font f-14 m-0">10k</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-start mt-3">
+                    <div class="d-flex align-items-baseline gap-2 w-50">
+                      <span class="circle-indicator"
+                        [style.backgroundColor]="pieChartData?.datasets[0].backgroundColor[2]"></span>
+                      <div class="d-inline-block">
+                        <p class="m-0 mb-1">Jodhpur</p>
+                        <p class="bold-font f-14 m-0">3k</p>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-baseline gap-2 w-50">
+                      <span class="circle-indicator"
+                        [style.backgroundColor]="pieChartData?.datasets[0].backgroundColor[3]"></span>
+                      <div class="d-inline-block">
+                        <p class="m-0 mb-1">Udaipur</p>
+                        <p class="bold-font f-14 m-0">3k</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+      <div class="content-holder-card cardWithShadow p-3 h-100">
+        <div class="card-header">
+          <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+            <!-- Title -->
+            <h2 class="f-14 m-0 bodytext-color flex-grow-1 text-truncate">Total Expenses</h2>
+
+            <!-- Dropdown Container -->
+            <ng-container>
+              <span [matMenuTriggerFor]="expenses"
+                class="border text-primary f-16 px-3 rounded w-auto d-inline-flex align-items-center">
+                {{ selectedExpensesMonth }}
+                <i class="ms-2 bi bi-chevron-down"></i>
+              </span>
+              <mat-menu #expenses="matMenu">
+                <span class="f-16" mat-menu-item (click)="selectExpensesMonth('January')">January</span>
+                <span class="f-16" mat-menu-item (click)="selectExpensesMonth('February')">February</span>
+                <span class="f-16" mat-menu-item (click)="selectExpensesMonth('March')">March</span>
+                <span class="f-16" mat-menu-item (click)="selectExpensesMonth('April')">April</span>
+              </mat-menu>
+            </ng-container>
+          </div>
+
+        </div>
+        <hr class="header-break mt-5">
+        <div class="card-body">
+          <div class="body-content-container">
+            <div class="d-flex flex-column">
+              <ng-container>
+                <app-generic-chart chartId="lineChart" [chartType]="'line'" [chartData]="lineChartData"
+                  [chartOptions]="lineChartOptions"></app-generic-chart>
+              </ng-container>
+              <ng-container>
+                <div class="doughnut-chart-details mt-4">
+                  <div class="d-flex justify-content-between align-items-start">
+                    <div class="d-flex align-items-baseline gap-2 w-50">
+                      <span class="circle-indicator"
+                        [style.backgroundColor]="lineChartData?.datasets[0].backgroundColor[0]"></span>
+                      <div class="d-inline-block">
+                        <p class="m-0 mb-1">Jaipur</p>
+                        <p class="bold-font f-14 m-0">12k</p>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-baseline gap-2 w-50">
+                      <span class="circle-indicator"
+                        [style.backgroundColor]="lineChartData?.datasets[0].backgroundColor[1]"></span>
+                      <div class="d-inline-block">
+                        <p class="m-0 mb-1">Ajmer</p>
+                        <p class="bold-font f-14 m-0">10k</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-start mt-3">
+                    <div class="d-flex align-items-baseline gap-2 w-50">
+                      <span class="circle-indicator"
+                        [style.backgroundColor]="lineChartData?.datasets[0].backgroundColor[2]"></span>
+                      <div class="d-inline-block">
+                        <p class="m-0 mb-1">Jodhpur</p>
+                        <p class="bold-font f-14 m-0">3k</p>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-baseline gap-2 w-50">
+                      <span class="circle-indicator"
+                        [style.backgroundColor]="lineChartData?.datasets[0].backgroundColor[3]"></span>
+                      <div class="d-inline-block">
+                        <p class="m-0 mb-1">Udaipur</p>
+                        <p class="bold-font f-14 m-0">3k</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+      <div class="content-holder-card cardWithShadow p-3 h-100">
+        <div class="card-header py-2">
+          <div class="d-flex align-items-center justify-content-between">
+            <h2 class="f-14 m-0 bodytext-color">Overview</h2>
+            <span [matMenuTriggerFor]="themeMenu" class="text-primary f-18"><i class="bi bi-funnel"></i></span>
+            <!-- Theme Mat Menu -->
+            <mat-menu #themeMenu="matMenu" xPosition="before" class="p-2">
+              <button mat-menu-item class="menu-items">
+                <i class="bi bi-box me-2"></i>
+                <span> Products</span>
+              </button>
+              <button mat-menu-item class="menu-items">
+                <i class="bi bi-tags me-2"></i>
+                <span> Brands</span>
+              </button>
+              <button mat-menu-item class="menu-items">
+                <i class="bi bi-boxes me-2"></i>
+                <span> Category</span>
+              </button>
+              <button mat-menu-item class="menu-items">
+                <i class="bi bi-box2 me-2"></i>
+                <span> Sub-Category</span>
+              </button>
+            </mat-menu>
+          </div>
+          <p class="m-0 f-12 opacity-75 fw-semibold">Overall Inventory Overview</p>
+        </div>
+        <hr class="header-break">
+        <div class="card-body">
+          <div class="banks-list-details-container overflow-auto mt-3 pb-2">
+            <div class="content-container row g-3 mx-0">
+              <div class="col-sm-6 col-md-12">
+                <div
+                  class="border-bottom border-light-subtle d-flex justify-content-between align-items-center gap-3 pb-3 h-100">
+                  <div class="d-flex gap-3 bodytext-color">
+                    <img src="./assets/images/products/iphone.svg" alt="iphone" width="35px">
+                    <div>
+                      <p class="m-0 bodytext-color medium-font">Apple iPhone 13</p>
+                      <div class="d-flex gap-2">
+                        <p class="f-12 m-0 opacity-50">Item: #FXZ-7892</p>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="f-16 medium-font m-0 upgrade-project">{{ 999.29 | currency:'INR'}}</p>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-12">
+                <div
+                  class="border-light-subtle border-bottom d-flex justify-content-between align-items-center gap-3 pb-3 h-100">
+                  <div class="d-flex gap-3 bodytext-color">
+                    <img src="./assets/images/products/nike-jordan.svg" alt="nike" width="35px">
+                    <div>
+                      <p class="m-0 bodytext-color medium-font">Nike Air Jordan</p>
+                      <div class="d-flex gap-2">
+                        <p class="f-12 m-0 opacity-50">Item: #FXZ-4567</p>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="f-16 medium-font m-0 upgrade-project">{{ 999.29 | currency:'INR'}}</p>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-12">
+                <div
+                  class="border-light-subtle border-bottom d-flex justify-content-between align-items-center gap-3 pb-3 h-100">
+                  <div class="d-flex gap-3 bodytext-color">
+                    <img src="./assets/images/products/headphone.svg" alt="headphone" width="35px">
+                    <div>
+                      <p class="m-0 bodytext-color medium-font">Beats Studio 2</p>
+                      <div class="d-flex gap-2">
+                        <p class="f-12 m-0 opacity-50">Item: #FXZ-3456</p>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="f-16 medium-font m-0 upgrade-project">{{ 999.29 | currency:'INR'}}</p>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-12">
+                <div
+                  class="border-light-subtle border-bottom d-flex justify-content-between align-items-center gap-3 pb-3 h-100">
+                  <div class="d-flex gap-3 bodytext-color">
+                    <img src="./assets/images/products/apple-watch.svg" alt="watch" width="35px">
+                    <div>
+                      <p class="m-0 bodytext-color medium-font">Apple Watch Series 7</p>
+                      <div class="d-flex gap-2">
+                        <p class="f-12 m-0 opacity-50">Item: #FXZ-9485</p>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="f-16 medium-font m-0 upgrade-project">{{ 999.29 | currency:'INR'}}</p>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-12">
+                <div
+                  class="border-light-subtle border-bottom d-flex justify-content-between align-items-center gap-3 pb-3 h-100">
+                  <div class="d-flex gap-3 bodytext-color">
+                    <img src="./assets/images/products/alexa.svg" alt="alexa" width="35px">
+                    <div>
+                      <p class="m-0 bodytext-color medium-font">Amazon Echo Dot</p>
+                      <div class="d-flex gap-2">
+                        <p class="f-12 m-0 opacity-50">Item: #FXZ-2345</p>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="f-16 medium-font m-0 upgrade-project">{{ 999.29 | currency:'INR'}}</p>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-12">
+                <div
+                  class="border-light-subtle border-bottom d-flex justify-content-between align-items-center gap-3 pb-3 h-100">
+                  <div class="d-flex gap-3 bodytext-color">
+                    <img src="./assets/images/products/play-station.svg" alt="play-station" width="35px">
+                    <div>
+                      <p class="m-0 bodytext-color medium-font">Play Station Console</p>
+                      <div class="d-flex gap-2">
+                        <p class="f-12 m-0 opacity-50">Item: #FXZ-8959</p>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="f-16 medium-font m-0 upgrade-project">{{ 999.29 | currency:'INR'}}</p>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-12">
+                <div
+                  class="border-light-subtle border-bottom d-flex justify-content-between align-items-center gap-3 pb-3 h-100">
+                  <div class="d-flex gap-3 bodytext-color">
+                    <img src="./assets/images/products/headphone.svg" alt="headphone" width="35px">
+                    <div>
+                      <p class="m-0 bodytext-color medium-font">Beats Studio 2</p>
+                      <div class="d-flex gap-2">
+                        <p class="f-12 m-0 opacity-50">Item: #FXZ-3456</p>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="f-16 medium-font m-0 upgrade-project">{{ 999.29 | currency:'INR'}}</p>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-12">
+                <div
+                  class="border-light-subtle border-bottom d-flex justify-content-between align-items-center gap-3 pb-3 h-100">
+                  <div class="d-flex gap-3 bodytext-color">
+                    <img src="./assets/images/products/apple-watch.svg" alt="watch" width="35px">
+                    <div>
+                      <p class="m-0 bodytext-color medium-font">Apple Watch Series 7</p>
+                      <div class="d-flex gap-2">
+                        <p class="f-12 m-0 opacity-50">Item: #FXZ-9485</p>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="f-16 medium-font m-0 upgrade-project">{{ 999.29 | currency:'INR'}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+      <div class="content-holder-card p-3 h-100">
+        <div class="card-header py-2">
+
+        </div>
+        <hr class="header-break">
+        <div class="card-body">
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row gy-4">
+    <div class="col-lg-6">
+      <div class="content-holder-card cardWithShadow p-3 h-100">
+        <div class="card-header">
+          <div class="d-flex align-items-center justify-content-between">
+            <h2 class="f-14 m-0 bodytext-color">Earning Reports</h2>
+            <span class="text-primary f-18"><i class="bi bi-three-dots-vertical"></i></span>
+          </div>
+          <p class="m-0 f-12 opacity-75 fw-semibold">Yearly Earnings Overview</p>
+        </div>
+        <hr class="header-break">
+        <div class="card-body">
+          <div class="tab-container">
+            <div class="card-body">
+              <div class="tab-container">
+                <mat-tab-group>
+                  <mat-tab>
+                    <ng-template mat-tab-label>
+                      <span class="avatar-initial rounded p-2">
+                        <i class="fs-3 bi bi-box"></i>
+                      </span>
+                      <p class="m-0 pt-3">Order</p>
+                    </ng-template>
+                    <div class="doughnut-chart-details mt-4 ms-5">
+                      <app-generic-chart chartId="barChart" [chartData]="barChartData"
+                        [chartOptions]="barChartOptions"></app-generic-chart>
+                      <div class="d-flex justify-content-between align-items-start">
+                        <div class="d-flex align-items-baseline gap-2 w-50">
+                          <span class="circle-indicator"
+                            [style.backgroundColor]="barChartData?.datasets[0].backgroundColor[0]"></span>
+                          <div class="d-inline-block">
+                            <p class="m-0 mb-1">Jaipur</p>
+                            <p class="bold-font f-14 m-0">12k</p>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-baseline gap-2 w-50">
+                          <span class="circle-indicator"
+                            [style.backgroundColor]="barChartData?.datasets[0].backgroundColor[1]"></span>
+                          <div class="d-inline-block">
+                            <p class="m-0 mb-1">Ajmer</p>
+                            <p class="bold-font f-14 m-0">10k</p>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-baseline gap-2 w-50">
+                          <span class="circle-indicator"
+                            [style.backgroundColor]="barChartData?.datasets[0].backgroundColor[2]"></span>
+                          <div class="d-inline-block">
+                            <p class="m-0 mb-1">Jodhpur</p>
+                            <p class="bold-font f-14 m-0">3k</p>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-baseline gap-2 w-50">
+                          <span class="circle-indicator"
+                            [style.backgroundColor]="barChartData?.datasets[0].backgroundColor[3]"></span>
+                          <div class="d-inline-block">
+                            <p class="m-0 mb-1">Udaipur</p>
+                            <p class="bold-font f-14 m-0">3k</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </mat-tab>
+                  <mat-tab>
+                    <ng-template mat-tab-label>
+                      <span class="avatar-initial rounded p-2">
+                        <i class="fs-3 bi bi-wallet"></i>
+                      </span>
+                      <p class="m-0 pt-3">Sales</p>
+                    </ng-template>
+                    <div class="doughnut-chart-details mt-4 ms-5">
+                      <app-generic-chart chartId="lineChart" [chartType]="'line'" [chartData]="lineChartData"
+                      [chartOptions]="lineChartOptions"></app-generic-chart>
+                      <div class="d-flex justify-content-between align-items-start">
+                        <div class="d-flex align-items-baseline gap-2 w-50">
+                          <span class="circle-indicator"
+                            [style.backgroundColor]="lineChartData?.datasets[0].backgroundColor[0]"></span>
+                          <div class="d-inline-block">
+                            <p class="m-0 mb-1">Jaipur</p>
+                            <p class="bold-font f-14 m-0">12k</p>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-baseline gap-2 w-50">
+                          <span class="circle-indicator"
+                            [style.backgroundColor]="lineChartData?.datasets[0].backgroundColor[1]"></span>
+                          <div class="d-inline-block">
+                            <p class="m-0 mb-1">Ajmer</p>
+                            <p class="bold-font f-14 m-0">10k</p>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-baseline gap-2 w-50">
+                          <span class="circle-indicator"
+                            [style.backgroundColor]="lineChartData?.datasets[0].backgroundColor[2]"></span>
+                          <div class="d-inline-block">
+                            <p class="m-0 mb-1">Jodhpur</p>
+                            <p class="bold-font f-14 m-0">3k</p>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-baseline gap-2 w-50">
+                          <span class="circle-indicator"
+                            [style.backgroundColor]="lineChartData?.datasets[0].backgroundColor[3]"></span>
+                          <div class="d-inline-block">
+                            <p class="m-0 mb-1">Udaipur</p>
+                            <p class="bold-font f-14 m-0">3k</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </mat-tab>
+                  <mat-tab>
+                    <ng-template mat-tab-label>
+                      <span class="avatar-initial rounded p-2">
+                        <i class="fs-3 bi bi-currency-rupee"></i>
+                      </span>
+                      <p class="m-0 pt-3">Profit</p>
+                    </ng-template>
+                    <div class="doughnut-chart-details mt-4 ms-5">
+                      <app-generic-chart chartId="pieChart" [chartType]="'pie'" [chartData]="pieChartData"
+                          [chartOptions]="pieChartOptions"></app-generic-chart>
+                      <div class="d-flex justify-content-between align-items-start">
+                        <div class="d-flex align-items-baseline gap-2 w-50">
+                          <span class="circle-indicator"
+                            [style.backgroundColor]="pieChartData?.datasets[0].backgroundColor[0]"></span>
+                          <div class="d-inline-block">
+                            <p class="m-0 mb-1">Jaipur</p>
+                            <p class="bold-font f-14 m-0">12k</p>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-baseline gap-2 w-50">
+                          <span class="circle-indicator"
+                            [style.backgroundColor]="pieChartData?.datasets[0].backgroundColor[1]"></span>
+                          <div class="d-inline-block">
+                            <p class="m-0 mb-1">Ajmer</p>
+                            <p class="bold-font f-14 m-0">10k</p>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-baseline gap-2 w-50">
+                          <span class="circle-indicator"
+                            [style.backgroundColor]="pieChartData?.datasets[0].backgroundColor[2]"></span>
+                          <div class="d-inline-block">
+                            <p class="m-0 mb-1">Jodhpur</p>
+                            <p class="bold-font f-14 m-0">3k</p>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-baseline gap-2 w-50">
+                          <span class="circle-indicator"
+                            [style.backgroundColor]="pieChartData?.datasets[0].backgroundColor[3]"></span>
+                          <div class="d-inline-block">
+                            <p class="m-0 mb-1">Udaipur</p>
+                            <p class="bold-font f-14 m-0">3k</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </mat-tab>
+                  <mat-tab>
+                    <ng-template mat-tab-label>
+                      <span class="avatar-initial rounded p-2">
+                        <i class="fs-3 bi bi-inboxes"></i>
+                      </span>
+                      <p class="m-0 pt-3">Income</p>
+                    </ng-template>
+                    <div class="doughnut-chart-details ms-5 h-100">
+                      <app-generic-chart chartId="doughnutChart" [chartType]="'doughnut'" [chartData]="doughnutChartData"
+                      [chartOptions]="doughnutChartOptions"></app-generic-chart>
+                      <div class="d-flex justify-content-evenly align-items-start mt-4 ">
+                        <div class="d-flex align-items-baseline gap-2 w-50">
+                          <span class="circle-indicator"
+                            [style.backgroundColor]="doughnutChartData?.datasets[0]?.backgroundColor[0]"></span>
+                          <div class="d-inline-block">
+                            <p class="m-0 mb-1">Jaipur</p>
+                            <p class="bold-font f-14 m-0">12k</p>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-baseline gap-2 w-50">
+                          <span class="circle-indicator"
+                            [style.backgroundColor]="doughnutChartData?.datasets[0]?.backgroundColor[1]"></span>
+                          <div class="d-inline-block">
+                            <p class="m-0 mb-1">Ajmer</p>
+                            <p class="bold-font f-14 m-0">10k</p>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-baseline gap-2 w-50">
+                          <span class="circle-indicator"
+                            [style.backgroundColor]="doughnutChartData?.datasets[0]?.backgroundColor[2]"></span>
+                          <div class="d-inline-block">
+                            <p class="m-0 mb-1">Jodhpur</p>
+                            <p class="bold-font f-14 m-0">3k</p>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </mat-tab>
+                </mat-tab-group>
+              </div>
+            </div>
+
+          </div>
         </div>
 
-        <div>
+      </div>
+    </div>
+    <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+      <div class="content-holder-card cardWithShadow p-3 h-100">
+        <div class="card-header">
+          <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+            <!-- Title -->
+            <h2 class="f-14 m-0 bodytext-color flex-grow-1 text-truncate">Total Earnings</h2>
+
+            <!-- Dropdown Container -->
+            <ng-container>
+              <span [matMenuTriggerFor]="earnings"
+                class="border text-primary f-16 px-3 rounded w-auto d-inline-flex align-items-center">
+                {{ selectedEarningMonth }}
+                <i class="ms-2 bi bi-chevron-down"></i>
+              </span>
+              <mat-menu #earnings="matMenu">
+                <span mat-menu-item (click)="selectEarningsMonth('January')">January</span>
+                <span mat-menu-item (click)="selectEarningsMonth('February')">February</span>
+                <span mat-menu-item (click)="selectEarningsMonth('March')">March</span>
+                <span mat-menu-item (click)="selectEarningsMonth('April')">April</span>
+              </mat-menu>
+            </ng-container>
+          </div>
 
         </div>
-      </mat-card>
+        <hr class="header-break mt-5">
+        <div class="card-body">
+          <div class="body-content-container">
+            <div class="d-flex flex-column">
+              <ng-container>
+                <app-generic-chart chartId="pieChart" [chartType]="'pie'" [chartData]="pieChartData"
+                  [chartOptions]="pieChartOptions"></app-generic-chart>
+              </ng-container>
+              <ng-container>
+                <div class="doughnut-chart-details mt-4">
+                  <div class="d-flex justify-content-between align-items-start">
+                    <div class="d-flex align-items-baseline gap-2 w-50">
+                      <span class="circle-indicator"
+                        [style.backgroundColor]="pieChartData?.datasets[0].backgroundColor[0]"></span>
+                      <div class="d-inline-block">
+                        <p class="m-0 mb-1">Jaipur</p>
+                        <p class="bold-font f-14 m-0">12k</p>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-baseline gap-2 w-50">
+                      <span class="circle-indicator"
+                        [style.backgroundColor]="pieChartData?.datasets[0].backgroundColor[1]"></span>
+                      <div class="d-inline-block">
+                        <p class="m-0 mb-1">Ajmer</p>
+                        <p class="bold-font f-14 m-0">10k</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-start mt-3">
+                    <div class="d-flex align-items-baseline gap-2 w-50">
+                      <span class="circle-indicator"
+                        [style.backgroundColor]="pieChartData?.datasets[0].backgroundColor[2]"></span>
+                      <div class="d-inline-block">
+                        <p class="m-0 mb-1">Jodhpur</p>
+                        <p class="bold-font f-14 m-0">3k</p>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-baseline gap-2 w-50">
+                      <span class="circle-indicator"
+                        [style.backgroundColor]="pieChartData?.datasets[0].backgroundColor[3]"></span>
+                      <div class="d-inline-block">
+                        <p class="m-0 mb-1">Udaipur</p>
+                        <p class="bold-font f-14 m-0">3k</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+      <div class="content-holder-card cardWithShadow p-3 h-100">
+        <div class="card-header">
+          <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+            <!-- Title -->
+            <h2 class="f-14 m-0 bodytext-color flex-grow-1 text-truncate">Total Expenses</h2>
+
+            <!-- Dropdown Container -->
+            <ng-container>
+              <span [matMenuTriggerFor]="expenses"
+                class="border text-primary f-16 px-3 rounded w-auto d-inline-flex align-items-center">
+                {{ selectedExpensesMonth }}
+                <i class="ms-2 bi bi-chevron-down"></i>
+              </span>
+              <mat-menu #expenses="matMenu">
+                <span class="f-16" mat-menu-item (click)="selectExpensesMonth('January')">January</span>
+                <span class="f-16" mat-menu-item (click)="selectExpensesMonth('February')">February</span>
+                <span class="f-16" mat-menu-item (click)="selectExpensesMonth('March')">March</span>
+                <span class="f-16" mat-menu-item (click)="selectExpensesMonth('April')">April</span>
+              </mat-menu>
+            </ng-container>
+          </div>
+
+        </div>
+        <hr class="header-break mt-5">
+        <div class="card-body">
+          <div class="body-content-container">
+            <div class="d-flex flex-column">
+              <ng-container>
+                <app-generic-chart chartId="lineChart" [chartType]="'line'" [chartData]="lineChartData"
+                  [chartOptions]="lineChartOptions"></app-generic-chart>
+              </ng-container>
+              <ng-container>
+                <div class="doughnut-chart-details mt-4">
+                  <div class="d-flex justify-content-between align-items-start">
+                    <div class="d-flex align-items-baseline gap-2 w-50">
+                      <span class="circle-indicator"
+                        [style.backgroundColor]="lineChartData?.datasets[0].backgroundColor[0]"></span>
+                      <div class="d-inline-block">
+                        <p class="m-0 mb-1">Jaipur</p>
+                        <p class="bold-font f-14 m-0">12k</p>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-baseline gap-2 w-50">
+                      <span class="circle-indicator"
+                        [style.backgroundColor]="lineChartData?.datasets[0].backgroundColor[1]"></span>
+                      <div class="d-inline-block">
+                        <p class="m-0 mb-1">Ajmer</p>
+                        <p class="bold-font f-14 m-0">10k</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-start mt-3">
+                    <div class="d-flex align-items-baseline gap-2 w-50">
+                      <span class="circle-indicator"
+                        [style.backgroundColor]="lineChartData?.datasets[0].backgroundColor[2]"></span>
+                      <div class="d-inline-block">
+                        <p class="m-0 mb-1">Jodhpur</p>
+                        <p class="bold-font f-14 m-0">3k</p>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-baseline gap-2 w-50">
+                      <span class="circle-indicator"
+                        [style.backgroundColor]="lineChartData?.datasets[0].backgroundColor[3]"></span>
+                      <div class="d-inline-block">
+                        <p class="m-0 mb-1">Udaipur</p>
+                        <p class="bold-font f-14 m-0">3k</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+      <div class="content-holder-card cardWithShadow p-3 h-100">
+        <div class="card-header py-2">
+          <div class="d-flex align-items-center justify-content-between">
+            <h2 class="f-14 m-0 bodytext-color">Overview</h2>
+            <span [matMenuTriggerFor]="themeMenu" class="text-primary f-18"><i class="bi bi-funnel"></i></span>
+            <!-- Theme Mat Menu -->
+            <mat-menu #themeMenu="matMenu" xPosition="before" class="p-2">
+              <button mat-menu-item class="menu-items">
+                <i class="bi bi-box me-2"></i>
+                <span> Products</span>
+              </button>
+              <button mat-menu-item class="menu-items">
+                <i class="bi bi-tags me-2"></i>
+                <span> Brands</span>
+              </button>
+              <button mat-menu-item class="menu-items">
+                <i class="bi bi-boxes me-2"></i>
+                <span> Category</span>
+              </button>
+              <button mat-menu-item class="menu-items">
+                <i class="bi bi-box2 me-2"></i>
+                <span> Sub-Category</span>
+              </button>
+            </mat-menu>
+          </div>
+          <p class="m-0 f-12 opacity-75 fw-semibold">Overall Inventory Overview</p>
+        </div>
+        <hr class="header-break">
+        <div class="card-body">
+          <div class="banks-list-details-container overflow-auto mt-3 pb-2">
+            <div class="content-container row g-3 mx-0">
+              <div class="col-sm-6 col-md-12">
+                <div
+                  class="border-bottom border-light-subtle d-flex justify-content-between align-items-center gap-3 pb-3 h-100">
+                  <div class="d-flex gap-3 bodytext-color">
+                    <img src="./assets/images/products/iphone.svg" alt="iphone" width="35px">
+                    <div>
+                      <p class="m-0 bodytext-color medium-font">Apple iPhone 13</p>
+                      <div class="d-flex gap-2">
+                        <p class="f-12 m-0 opacity-50">Item: #FXZ-7892</p>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="f-16 medium-font m-0 upgrade-project">{{ 999.29 | currency:'INR'}}</p>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-12">
+                <div
+                  class="border-light-subtle border-bottom d-flex justify-content-between align-items-center gap-3 pb-3 h-100">
+                  <div class="d-flex gap-3 bodytext-color">
+                    <img src="./assets/images/products/nike-jordan.svg" alt="nike" width="35px">
+                    <div>
+                      <p class="m-0 bodytext-color medium-font">Nike Air Jordan</p>
+                      <div class="d-flex gap-2">
+                        <p class="f-12 m-0 opacity-50">Item: #FXZ-4567</p>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="f-16 medium-font m-0 upgrade-project">{{ 999.29 | currency:'INR'}}</p>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-12">
+                <div
+                  class="border-light-subtle border-bottom d-flex justify-content-between align-items-center gap-3 pb-3 h-100">
+                  <div class="d-flex gap-3 bodytext-color">
+                    <img src="./assets/images/products/headphone.svg" alt="headphone" width="35px">
+                    <div>
+                      <p class="m-0 bodytext-color medium-font">Beats Studio 2</p>
+                      <div class="d-flex gap-2">
+                        <p class="f-12 m-0 opacity-50">Item: #FXZ-3456</p>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="f-16 medium-font m-0 upgrade-project">{{ 999.29 | currency:'INR'}}</p>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-12">
+                <div
+                  class="border-light-subtle border-bottom d-flex justify-content-between align-items-center gap-3 pb-3 h-100">
+                  <div class="d-flex gap-3 bodytext-color">
+                    <img src="./assets/images/products/apple-watch.svg" alt="watch" width="35px">
+                    <div>
+                      <p class="m-0 bodytext-color medium-font">Apple Watch Series 7</p>
+                      <div class="d-flex gap-2">
+                        <p class="f-12 m-0 opacity-50">Item: #FXZ-9485</p>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="f-16 medium-font m-0 upgrade-project">{{ 999.29 | currency:'INR'}}</p>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-12">
+                <div
+                  class="border-light-subtle border-bottom d-flex justify-content-between align-items-center gap-3 pb-3 h-100">
+                  <div class="d-flex gap-3 bodytext-color">
+                    <img src="./assets/images/products/alexa.svg" alt="alexa" width="35px">
+                    <div>
+                      <p class="m-0 bodytext-color medium-font">Amazon Echo Dot</p>
+                      <div class="d-flex gap-2">
+                        <p class="f-12 m-0 opacity-50">Item: #FXZ-2345</p>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="f-16 medium-font m-0 upgrade-project">{{ 999.29 | currency:'INR'}}</p>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-12">
+                <div
+                  class="border-light-subtle border-bottom d-flex justify-content-between align-items-center gap-3 pb-3 h-100">
+                  <div class="d-flex gap-3 bodytext-color">
+                    <img src="./assets/images/products/play-station.svg" alt="play-station" width="35px">
+                    <div>
+                      <p class="m-0 bodytext-color medium-font">Play Station Console</p>
+                      <div class="d-flex gap-2">
+                        <p class="f-12 m-0 opacity-50">Item: #FXZ-8959</p>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="f-16 medium-font m-0 upgrade-project">{{ 999.29 | currency:'INR'}}</p>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-12">
+                <div
+                  class="border-light-subtle border-bottom d-flex justify-content-between align-items-center gap-3 pb-3 h-100">
+                  <div class="d-flex gap-3 bodytext-color">
+                    <img src="./assets/images/products/headphone.svg" alt="headphone" width="35px">
+                    <div>
+                      <p class="m-0 bodytext-color medium-font">Beats Studio 2</p>
+                      <div class="d-flex gap-2">
+                        <p class="f-12 m-0 opacity-50">Item: #FXZ-3456</p>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="f-16 medium-font m-0 upgrade-project">{{ 999.29 | currency:'INR'}}</p>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-12">
+                <div
+                  class="border-light-subtle border-bottom d-flex justify-content-between align-items-center gap-3 pb-3 h-100">
+                  <div class="d-flex gap-3 bodytext-color">
+                    <img src="./assets/images/products/apple-watch.svg" alt="watch" width="35px">
+                    <div>
+                      <p class="m-0 bodytext-color medium-font">Apple Watch Series 7</p>
+                      <div class="d-flex gap-2">
+                        <p class="f-12 m-0 opacity-50">Item: #FXZ-9485</p>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="f-16 medium-font m-0 upgrade-project">{{ 999.29 | currency:'INR'}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+      <div class="content-holder-card p-3 h-100">
+        <div class="card-header py-2">
+
+        </div>
+        <hr class="header-break">
+        <div class="card-body">
+
+        </div>
+      </div>
     </div>
   </div>
 </div>
+</mat-card>

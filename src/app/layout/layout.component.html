@@ -97,18 +97,27 @@ The routed views render in the <router-outlet> -->
   </div>
 </mat-toolbar>
 <mat-sidenav-container>
-  <mat-sidenav #sidenav [opened]="!isMobile || sidenavOpened" [mode]="isMobile ? 'over' : 'side'" class="content rounded my-3 ms-3"
-    [style.width]="!isMobile ? (collapsed() ? '70px' : '250px') : null" >
-    <app-sidenav [collapsed]="collapsed" (collapsedChanged)="menuClick($event)" (itemSelected)="onMenuItemSelected()"></app-sidenav>
+  <mat-sidenav #sidenav [opened]="!isMobile || sidenavOpened" [mode]="isMobile ? 'over' : 'side'"
+    class="content rounded mt-3 ms-3" [style.width]="!isMobile ? (collapsed() ? '70px' : '250px') : null">
+    <app-sidenav [collapsed]="collapsed" (collapsedChanged)="menuClick($event)"
+      (itemSelected)="onMenuItemSelected()"></app-sidenav>
   </mat-sidenav>
-  <mat-sidenav-content [style.marginLeft]="'300px'" [style.marginRight]="'70px'"
-  [ngStyle]="{
-    'margin-left': !isMobile ? (collapsed() ? '140px' : '320px') : '70px',
-    'margin-right': '60px',
+  <mat-sidenav-content [style.marginLeft]="'300px'" [style.marginRight]="'70px'" [ngStyle]="{
+    'margin-left': !isMobile ? (collapsed() ? '100px' : '280px') : '20px',
+    'margin-right': '20px',
     'transition': 'margin-left 0.3s ease-in-out, margin-right 0.3s ease-in-out'
-  }"
-  class="mt-3"
->
-    <router-outlet></router-outlet>
+  }" class="mt-3">
+      <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
+<footer class="footer">
+  <div class="container footer-content">
+    <p>&copy; 2024 My App. All rights reserved.</p>
+    <nav>
+      <ul>
+        <li><a routerLink="/privacy-policy">Privacy Policy</a></li>
+        <li><a routerLink="/terms-of-service">Terms of Service</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>

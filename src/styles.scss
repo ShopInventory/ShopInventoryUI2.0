@@ -176,6 +176,8 @@ html {
   }
 }
 
+
+
 * {
   font-family: 'Poppins-r';
 }
@@ -184,11 +186,6 @@ html {
 $borderColor: #e5eaef;
 $borderformColor: #dfe5ef;
 $border-radius: 7px;
-
-@font-face {
-  font-family: 'Jakarta';
-  src: url(../src/assets/fonts/PlusJakartaSans-VariableFont_wght.ttf);
-}
 
 
 // Poppins font
@@ -209,7 +206,14 @@ $border-radius: 7px;
 
 
 .section-card {
-  background-color: #ecf2ff !important;
+  // background-color: #ecf2ff !important;
+  background-color: #948af43d !important;
+  box-shadow: 0px 1px 5px 0px rgba(.4, .4, .4, .4) !important;
+
+}
+
+.bodytext-color {
+  color: #414141 !important;
 }
 
 p,
@@ -282,6 +286,26 @@ h4 {
   font-size: 2.0rem;
 }
 
+.f-22 {
+  font-size: 2.2rem;
+}
+
+.f-24 {
+  font-size: 2.4rem;
+}
+
+.f-26 {
+  font-size: 2.6rem;
+}
+
+.f-28 {
+  font-size: 2.8rem;
+}
+
+.f-30 {
+  font-size: 3.0rem;
+}
+
 .flex-1-auto {
   flex: 1 1 0%;
 }
@@ -352,8 +376,7 @@ h4 {
 ---mat-card style class---
 ----------------------- */
 .cardWithShadow {
-  box-shadow: 0rem 0.308rem 2rem #74799326 !important;
-  padding: 15px;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, .4) !important;
 }
 
 .mdc-form-field>label {
@@ -414,7 +437,8 @@ h4 {
   font-size: 1.4rem !important;
   font-weight: 600 !important;
   color: #414141;
-  background-color: #eef5ff !important;
+  // background-color: #eef5ff !important;
+  background-color: #948af43d !important;
 }
 
 .mat-footer-cell {

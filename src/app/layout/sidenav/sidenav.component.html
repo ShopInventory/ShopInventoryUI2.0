@@ -13,30 +13,34 @@
   </a>
 </mat-nav-list> -->
 <!-- (click)="toggleCollapsedState()" -->
-<mat-nav-list class="sidebar-list">
+ <div class="sidebar-list">
+
+<mat-nav-list class="sidebar-main-menu">
   <mat-accordion *ngFor="let item of navItems()">
     <mat-expansion-panel class="mb-2" #expansionPanel [hideToggle]="collapsed()" [expanded]="item.panelOpenState">
       <mat-expansion-panel-header (click)="onPanelOpened(item)">
         <mat-panel-title [matTooltip]="!collapsed() ? '' : (item.navCap ?? '')" [matTooltipPosition]="'right'"
           class="d-flex align-items-center" [matTooltipClass]="'custom-tooltip'">
-          <i class="{{ item.navIcon }} navIcon ms-2 me-3 px-1" matListItemIcon></i>
-          <span class="navCap" *ngIf="!collapsed()" matListItemTitle>{{ item.navCap }}</span>
+          <i class="{{ item.navIcon }} navIcon bodytext-color ms-2 me-3 px-1" matListItemIcon></i>
+          <span class="navCap medium-font bodytext-color" *ngIf="!collapsed()" matListItemTitle>{{ item.navCap }}</span>
         </mat-panel-title>
       </mat-expansion-panel-header>
       <ng-container *ngFor="let child of item.children">
         <a mat-list-item (click)="onItemSelected(child)" [matTooltipPosition]="'right'" *ngIf="!collapsed()"
           class="d-flex align-items-center" [matTooltip]="!collapsed() ? '' : (child.displayName ?? '')"
           [matTooltipClass]="'custom-tooltip'" [class.active]="activeChild === child">
-          <i class="{{ child.iconName }} navIcon me-3"></i>
-          <span #navCap class="navCap" [matTooltip]="child.displayName ? child.displayName : '' "
+          <i class="{{ child.iconName }} navIcon bodytext-color me-3"></i>
+          <span #navCap class="navCap medium-font bodytext-color" [matTooltip]="child.displayName ? child.displayName : '' "
             [matTooltipPosition]="'right'" [matTooltipClass]="'custom-tooltip'">{{ child.displayName }}</span>
         </a>
       </ng-container>
     </mat-expansion-panel>
   </mat-accordion>
+</mat-nav-list>
 
   <div class="spacer"></div>
 
+  <mat-nav-list class="sidebar-setting">
 
   <!-- Settings Menu Added Here -->
   <mat-accordion *ngFor="let item of settingItems()">
@@ -44,19 +48,20 @@
       <mat-expansion-panel-header (click)="onPanelOpened(item)">
         <mat-panel-title [matTooltip]="!collapsed() ? '' : (item.navCap ?? '')" [matTooltipPosition]="'right'"
           class="d-flex align-items-start" [matTooltipClass]="'custom-tooltip'">
-          <i class="{{ item.navIcon }} navIcon ms-2 me-3 px-1" matListItemIcon></i>
-          <span class="navCap" *ngIf="!collapsed()" matListItemTitle>{{ item.navCap }}</span>
+          <i class="{{ item.navIcon }} navIcon medium-font bodytext-color ms-2 me-3 px-1" matListItemIcon></i>
+          <span class="navCap medium-font bodytext-color" *ngIf="!collapsed()" matListItemTitle>{{ item.navCap }}</span>
         </mat-panel-title>
       </mat-expansion-panel-header>
       <ng-container *ngFor="let child of item.children">
         <a mat-list-item (click)="onItemSelected(child)" [matTooltipPosition]="'right'" *ngIf="!collapsed()"
           class="d-flex align-items-center" [matTooltip]="!collapsed() ? '' : (child.displayName ?? '')"
           [matTooltipClass]="'custom-tooltip'">
-          <i class="{{ child.iconName }} navIcon me-3"></i>
-          <span #navCap class="navCap" [matTooltip]="child.displayName ? child.displayName : '' "
+          <i class="{{ child.iconName }} navIcon medium-font bodytext-color me-3"></i>
+          <span #navCap class="navCap medium-font bodytext-color" [matTooltip]="child.displayName ? child.displayName : '' "
             [matTooltipPosition]="'right'" [matTooltipClass]="'custom-tooltip'">{{ child.displayName }}</span>
         </a>
       </ng-container>
     </mat-expansion-panel>
   </mat-accordion>
 </mat-nav-list>
+</div>

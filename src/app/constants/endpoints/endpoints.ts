@@ -1,13 +1,13 @@
 import { environment } from "../../../environments/environment";
 
-const shopInventoryBaseUrl = 'http://172.22.32.95:8080';
+const shopInventoryBaseUrl = 'http://10.68.117.236:8080';
 
 const devPorts: any = {
   'shop-inventory': ':8080',
 }
 
 const devUrls: any = {
-  'shop-inventory': 'http://172.22.32.95:8080',
+  'shop-inventory': 'http://10.68.117.236:8080',
 }
 
 
