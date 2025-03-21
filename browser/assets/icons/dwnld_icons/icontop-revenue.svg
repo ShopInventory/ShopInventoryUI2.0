@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="120" height="120" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.055" y1="0.04" x2="0.949" y2="0.958" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffd8b7"/>
+      <stop offset="0.217" stop-color="#ffbb81"/>
+      <stop offset="1" stop-color="#e68c40"/>
+    </linearGradient>
+    <filter id="Rectangle_7777" x="0" y="0" width="120" height="120" filterUnits="userSpaceOnUse">
+      <feOffset dx="10" dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feFlood flood-opacity="0.22"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_65420" data-name="Group 65420" transform="translate(-20 -653)">
+    <g id="Group_63771" data-name="Group 63771" transform="translate(0 453)">
+      <g transform="matrix(1, 0, 0, 1, 20, 200)" filter="url(#Rectangle_7777)">
+        <rect id="Rectangle_7777-2" data-name="Rectangle 7777" width="60" height="60" rx="10" transform="translate(20 20)" fill="url(#linear-gradient)"/>
+      </g>
+    </g>
+    <g id="Group_63796" data-name="Group 63796" transform="translate(-259 -22)">
+      <path id="coins_1_" data-name="coins (1)" d="M20.625,0C15.368,0,11.25,2.471,11.25,5.625V8.859A16.02,16.02,0,0,0,9.375,8.75C4.118,8.75,0,11.221,0,14.375v10C0,27.529,4.118,30,9.375,30c4.259,0,7.77-1.621,8.95-3.914a15.992,15.992,0,0,0,2.3.164c5.257,0,9.375-2.471,9.375-5.625v-15C30,2.471,25.882,0,20.625,0ZM27.5,15.625c0,1.475-2.94,3.125-6.875,3.125a13.544,13.544,0,0,1-1.875-.129v-2.48a16.246,16.246,0,0,0,1.875.109A12.931,12.931,0,0,0,27.5,14.486Zm-25,2.611A12.931,12.931,0,0,0,9.375,20a12.931,12.931,0,0,0,6.875-1.764v1.139c0,1.475-2.94,3.125-6.875,3.125S2.5,20.85,2.5,19.375Zm25-7.611c0,1.475-2.94,3.125-6.875,3.125a13.551,13.551,0,0,1-1.958-.14,4.952,4.952,0,0,0-2.132-2.9,15.015,15.015,0,0,0,4.09.544A12.931,12.931,0,0,0,27.5,9.486ZM20.625,2.5C24.56,2.5,27.5,4.15,27.5,5.625S24.56,8.75,20.625,8.75,13.75,7.1,13.75,5.625,16.69,2.5,20.625,2.5ZM9.375,11.25c3.935,0,6.875,1.65,6.875,3.125S13.31,17.5,9.375,17.5,2.5,15.85,2.5,14.375,5.44,11.25,9.375,11.25Zm0,16.25C5.44,27.5,2.5,25.85,2.5,24.375V23.236A12.931,12.931,0,0,0,9.375,25a12.931,12.931,0,0,0,6.875-1.764v1.139C16.25,25.85,13.31,27.5,9.375,27.5Zm11.25-3.75a13.544,13.544,0,0,1-1.875-.129v-2.48a16.246,16.246,0,0,0,1.875.109A12.931,12.931,0,0,0,27.5,19.486v1.139C27.5,22.1,24.56,23.75,20.625,23.75Z" transform="translate(314 710)" fill="#fff"/>
+    </g>
+  </g>
+</svg>
