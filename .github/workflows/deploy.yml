@@ -25,7 +25,7 @@ jobs:
         run: npm install
 
       - name: 🔧 Build Angular App
-        run: npm run build -- --configuration=production --base-href="/ShopInventoryUI2.0/"
+        run: npm run build -- --configuration=production --base-href="/ShopInventoryUI2.0/browser"
 
       - name: 🚀 Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
